@@ -193,22 +193,32 @@ const StudentHomePage = () => {
             </style>
             <div style={styles.container}>
                 {/* Floating Elements */}
-                <div style={{...styles.floatingElement, ...styles.floatingElement1}}></div>
-                <div style={{...styles.floatingElement, ...styles.floatingElement2}}></div>
-                <div style={{...styles.floatingElement, ...styles.floatingElement3}}></div>
-                <div style={{...styles.floatingElement, ...styles.floatingElement4}}></div>
+                <div style={{ ...styles.floatingElement, ...styles.floatingElement1 }}></div>
+                <div style={{ ...styles.floatingElement, ...styles.floatingElement2 }}></div>
+                <div style={{ ...styles.floatingElement, ...styles.floatingElement3 }}></div>
+                <div style={{ ...styles.floatingElement, ...styles.floatingElement4 }}></div>
 
                 <div style={styles.mainContent}>
                     <h1 style={styles.heading}>Student Dashboard</h1>
-                    
+
                     <div className="stats-grid" style={styles.statsGrid}>
                         {/* Total Subjects Card */}
                         <div className="stat-card" style={styles.statCard}>
                             <img src={Subject || "/placeholder.svg"} alt="Subjects" style={styles.statIcon} />
                             <h3 style={styles.statTitle}>Total Subjects</h3>
                             <div style={styles.statValue}>
-                                <CountUp start={0} end={numberOfSubjects || 0} duration={2.5} />
+                                {typeof numberOfSubjects === "number" ? (
+                                    <CountUp
+                                        key={numberOfSubjects}
+                                        start={0}
+                                        end={numberOfSubjects}
+                                        duration={2.5}
+                                    />
+                                ) : (
+                                    0
+                                )}
                             </div>
+
                         </div>
 
                         {/* Total Assignments Card */}
@@ -216,7 +226,12 @@ const StudentHomePage = () => {
                             <img src={Assignment || "/placeholder.svg"} alt="Assignments" style={styles.statIcon} />
                             <h3 style={styles.statTitle}>Total Assignments</h3>
                             <div style={styles.statValue}>
-                                <CountUp start={0} end={15} duration={4} />
+                                <CountUp
+                                    key={15}
+                                    start={0}
+                                    end={15}
+                                    duration={4}
+                                />
                             </div>
                         </div>
 
@@ -232,7 +247,7 @@ const StudentHomePage = () => {
                                         <>
                                             {subjectAttendance && Array.isArray(subjectAttendance) && subjectAttendance.length > 0 ? (
                                                 <>
-                                                    <h3 style={{...styles.statTitle, marginBottom: '20px'}}>
+                                                    <h3 style={{ ...styles.statTitle, marginBottom: '20px' }}>
                                                         Attendance Overview
                                                     </h3>
                                                     <CustomPieChart data={chartData} />

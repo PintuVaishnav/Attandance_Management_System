@@ -177,7 +177,17 @@ const AdminHomePage = () => {
                 <img src={Students || "/placeholder.svg"} alt="Students" style={imageStyle} />
                 <div style={titleStyle}>Total Students</div>
                 <div style={dataStyle}>
-                  <CountUp start={0} end={numberOfStudents} duration={2.5} />
+                  {typeof numberOfStudents === "number" ? (
+                    <CountUp
+                      key={numberOfStudents}
+                      start={0}
+                      end={numberOfStudents}
+                      duration={2.5}
+                    />
+                  ) : (
+                    0
+                  )}
+
                 </div>
               </div>
             </Grid>
@@ -195,7 +205,17 @@ const AdminHomePage = () => {
                 <img src={Classes || "/placeholder.svg"} alt="Classes" style={imageStyle} />
                 <div style={titleStyle}>Total Classes</div>
                 <div style={dataStyle}>
-                  <CountUp start={0} end={numberOfClasses} duration={5} />
+                  {typeof numberOfClasses === "number" ? (
+                    <CountUp
+                      key={numberOfClasses}
+                      start={0}
+                      end={numberOfClasses}
+                      duration={5}
+                    />
+                  ) : (
+                    0
+                  )}
+
                 </div>
               </div>
             </Grid>
@@ -213,7 +233,17 @@ const AdminHomePage = () => {
                 <img src={Teachers || "/placeholder.svg"} alt="Teachers" style={imageStyle} />
                 <div style={titleStyle}>Total Teachers</div>
                 <div style={dataStyle}>
-                  <CountUp start={0} end={numberOfTeachers} duration={2.5} />
+                  {typeof numberOfTeachers === "number" ? (
+                    <CountUp
+                      key={numberOfTeachers}
+                      start={0}
+                      end={numberOfTeachers}
+                      duration={2.5}
+                    />
+                  ) : (
+                    0
+                  )}
+
                 </div>
               </div>
             </Grid>
