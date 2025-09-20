@@ -57,10 +57,11 @@ const AddClass = () => {
         style={{
           minHeight: "100vh",
           background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "20px",
+          padding: "24px",
           position: "relative",
           overflow: "hidden",
         }}
@@ -71,48 +72,65 @@ const AddClass = () => {
             position: "absolute",
             top: "10%",
             left: "10%",
-            width: "100px",
-            height: "100px",
+            width: "80px",
+            height: "80px",
             background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
             animation: "float 6s ease-in-out infinite",
+            animationDelay: "0s"
           }}
         ></div>
         <div
           style={{
             position: "absolute",
-            top: "60%",
-            right: "15%",
-            width: "80px",
-            height: "80px",
-            background: "rgba(255, 255, 255, 0.08)",
+            top: "20%",
+            right: "10%",
+            width: "120px",
+            height: "120px",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            animation: "float 8s ease-in-out infinite reverse",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "2s"
           }}
         ></div>
         <div
           style={{
             position: "absolute",
             bottom: "20%",
-            left: "20%",
+            left: "15%",
             width: "60px",
             height: "60px",
-            background: "rgba(255, 255, 255, 0.06)",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            animation: "float 7s ease-in-out infinite",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "4s"
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10%",
+            right: "20%",
+            width: "100px",
+            height: "100px",
+            background: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "50%",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "1s"
           }}
         ></div>
 
         {/* Main form container */}
         <div
           style={{
-            background: "rgba(255, 255, 255, 0.95)",
+            // <CHANGE> Changed from white background to transparent glassmorphic background
+            background: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(20px)",
             borderRadius: "24px",
             padding: "48px",
             maxWidth: "500px",
             width: "100%",
-            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             position: "relative",
             zIndex: 1,
@@ -130,13 +148,13 @@ const AddClass = () => {
               style={{
                 width: "80px",
                 height: "80px",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                 borderRadius: "20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 auto 24px",
-                boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)",
+                boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
               }}
             >
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -151,10 +169,8 @@ const AddClass = () => {
               style={{
                 fontSize: "32px",
                 fontWeight: "700",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                // <CHANGE> Changed to white color for glassmorphic background
+                color: "white",
                 marginBottom: "12px",
                 lineHeight: "1.2",
               }}
@@ -164,7 +180,8 @@ const AddClass = () => {
 
             <p
               style={{
-                color: "#6b7280",
+                // <CHANGE> Changed to white with transparency for glassmorphic background
+                color: "rgba(255, 255, 255, 0.8)",
                 fontSize: "16px",
                 lineHeight: "1.5",
                 margin: 0,
@@ -183,7 +200,8 @@ const AddClass = () => {
                   display: "block",
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#374151",
+                  // <CHANGE> Changed to white color for glassmorphic background
+                  color: "white",
                   marginBottom: "8px",
                 }}
               >
@@ -199,19 +217,22 @@ const AddClass = () => {
                   width: "100%",
                   padding: "16px 20px",
                   fontSize: "16px",
-                  border: "2px solid #e5e7eb",
+                  // <CHANGE> Updated input styling for glassmorphic theme
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
                   outline: "none",
                   transition: "all 0.3s ease",
-                  backgroundColor: "#ffffff",
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(10px)",
+                  color: "white",
                   boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea"
-                  e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                  e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "#e5e7eb"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                   e.target.style.boxShadow = "none"
                 }}
               />
@@ -235,7 +256,7 @@ const AddClass = () => {
                   fontSize: "16px",
                   fontWeight: "600",
                   color: "white",
-                  background: loader ? "#9ca3af" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: loader ? "rgba(255, 255, 255, 0.2)" : "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   border: "none",
                   borderRadius: "12px",
                   cursor: loader ? "not-allowed" : "pointer",
@@ -244,20 +265,20 @@ const AddClass = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "8px",
-                  boxShadow: loader ? "none" : "0 10px 30px rgba(102, 126, 234, 0.3)",
+                  boxShadow: loader ? "none" : "0 4px 16px rgba(81, 207, 102, 0.3)",
                   transform: loader ? "none" : "translateY(0)",
                   opacity: loader ? 0.7 : 1,
                 }}
                 onMouseEnter={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(-2px)"
-                    e.target.style.boxShadow = "0 15px 40px rgba(102, 126, 234, 0.4)"
+                    e.target.style.boxShadow = "0 6px 20px rgba(81, 207, 102, 0.4)"
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(0)"
-                    e.target.style.boxShadow = "0 10px 30px rgba(102, 126, 234, 0.3)"
+                    e.target.style.boxShadow = "0 4px 16px rgba(81, 207, 102, 0.3)"
                   }
                 }}
               >
@@ -300,9 +321,10 @@ const AddClass = () => {
                   padding: "16px 24px",
                   fontSize: "16px",
                   fontWeight: "600",
-                  color: "#667eea",
-                  background: "rgba(102, 126, 234, 0.1)",
-                  border: "2px solid rgba(102, 126, 234, 0.2)",
+                  color: "white",
+                  // <CHANGE> Updated secondary button styling for glassmorphic theme
+                  background: "rgba(255, 255, 255, 0.1)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
@@ -310,15 +332,16 @@ const AddClass = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: "8px",
+                  backdropFilter: "blur(10px)",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = "rgba(102, 126, 234, 0.15)"
-                  e.target.style.borderColor = "rgba(102, 126, 234, 0.3)"
+                  e.target.style.background = "rgba(255, 255, 255, 0.2)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.3)"
                   e.target.style.transform = "translateY(-1px)"
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = "rgba(102, 126, 234, 0.1)"
-                  e.target.style.borderColor = "rgba(102, 126, 234, 0.2)"
+                  e.target.style.background = "rgba(255, 255, 255, 0.1)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                   e.target.style.transform = "translateY(0)"
                 }}
               >
@@ -341,8 +364,9 @@ const AddClass = () => {
       {/* CSS animations */}
       <style jsx>{`
                 @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-20px); }
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    33% { transform: translateY(-20px) rotate(120deg); }
+                    66% { transform: translateY(-10px) rotate(240deg); }
                 }
                 
                 @keyframes spin {
