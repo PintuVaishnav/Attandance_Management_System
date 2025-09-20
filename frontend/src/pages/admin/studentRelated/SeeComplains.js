@@ -34,8 +34,8 @@ const SeeComplains = () => {
   const floatingAnimation = `
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      33% { transform: translateY(-10px) rotate(1deg); }
-      66% { transform: translateY(5px) rotate(-1deg); }
+      33% { transform: translateY(-20px) rotate(120deg); }
+      66% { transform: translateY(-10px) rotate(240deg); }
     }
     @keyframes pulse {
       0%, 100% { opacity: 0.4; }
@@ -49,7 +49,8 @@ const SeeComplains = () => {
 
   const containerStyle = {
     minHeight: "100vh",
-    background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+    // <CHANGE> Updated background to match purple gradient from previous components
+    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     padding: "2rem",
     fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
     position: "relative",
@@ -76,15 +77,15 @@ const SeeComplains = () => {
   const titleStyle = {
     fontSize: "2.5rem",
     fontWeight: "700",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    // <CHANGE> Updated title color to white for better contrast on purple background
+    color: "white",
     marginBottom: "0.5rem",
-    textShadow: "0 0 30px rgba(102, 126, 234, 0.3)",
+    textShadow: "0 0 30px rgba(255, 255, 255, 0.3)",
   }
 
   const subtitleStyle = {
-    color: "#94a3b8",
+    // <CHANGE> Updated subtitle color to white with transparency
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "1.1rem",
     fontWeight: "400",
   }
@@ -101,7 +102,8 @@ const SeeComplains = () => {
     justifyContent: "center",
     alignItems: "center",
     height: "400px",
-    color: "#667eea",
+    // <CHANGE> Updated loading text color to white
+    color: "white",
     fontSize: "1.2rem",
     fontWeight: "500",
   }
@@ -109,31 +111,33 @@ const SeeComplains = () => {
   const emptyStateStyle = {
     textAlign: "center",
     padding: "4rem 2rem",
-    background: "rgba(15, 23, 42, 0.8)",
+    // <CHANGE> Updated empty state background for consistency with glassmorphic theme
+    background: "rgba(255, 255, 255, 0.1)",
     backdropFilter: "blur(20px)",
     borderRadius: "20px",
-    border: "1px solid rgba(148, 163, 184, 0.1)",
-    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
     animation: "slideIn 0.6s ease-out",
   }
 
   const emptyIconStyle = {
     fontSize: "4rem",
     marginBottom: "1rem",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    // <CHANGE> Updated empty icon color to white
+    color: "white",
   }
 
   const emptyTextStyle = {
-    color: "#e2e8f0",
+    // <CHANGE> Updated empty text color to white
+    color: "white",
     fontSize: "1.5rem",
     fontWeight: "600",
     marginBottom: "0.5rem",
   }
 
   const emptySubtextStyle = {
-    color: "#94a3b8",
+    // <CHANGE> Updated empty subtext color to white with transparency
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "1rem",
   }
 
@@ -144,12 +148,13 @@ const SeeComplains = () => {
   }
 
   const complaintCardStyle = {
-    background: "rgba(15, 23, 42, 0.8)",
+    // <CHANGE> Updated complaint card background for consistency with glassmorphic theme
+    background: "rgba(255, 255, 255, 0.1)",
     backdropFilter: "blur(20px)",
     borderRadius: "16px",
-    border: "1px solid rgba(148, 163, 184, 0.1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
     padding: "1.5rem",
-    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
     transition: "all 0.3s ease",
     animation: "slideIn 0.6s ease-out",
     cursor: "pointer",
@@ -157,8 +162,9 @@ const SeeComplains = () => {
 
   const complaintCardHoverStyle = {
     transform: "translateY(-5px)",
-    boxShadow: "0 20px 40px -10px rgba(102, 126, 234, 0.3)",
-    borderColor: "rgba(102, 126, 234, 0.3)",
+    boxShadow: "0 16px 48px rgba(255, 255, 255, 0.15)",
+    borderColor: "rgba(255, 255, 255, 0.3)",
+    background: "rgba(255, 255, 255, 0.15)",
   }
 
   const complaintHeaderStyle = {
@@ -173,14 +179,16 @@ const SeeComplains = () => {
   }
 
   const userNameStyle = {
-    color: "#e2e8f0",
+    // <CHANGE> Updated user name color to white
+    color: "white",
     fontSize: "1.1rem",
     fontWeight: "600",
     marginBottom: "0.25rem",
   }
 
   const dateStyle = {
-    color: "#94a3b8",
+    // <CHANGE> Updated date color to white with transparency
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "0.875rem",
     fontWeight: "400",
   }
@@ -197,7 +205,8 @@ const SeeComplains = () => {
     width: "20px",
     height: "20px",
     borderRadius: "4px",
-    border: "2px solid #475569",
+    // <CHANGE> Updated checkbox border color to white with transparency
+    border: "2px solid rgba(255, 255, 255, 0.4)",
     background: "transparent",
     cursor: "pointer",
     transition: "all 0.2s ease",
@@ -205,14 +214,16 @@ const SeeComplains = () => {
   }
 
   const complaintTextStyle = {
-    color: "#cbd5e1",
+    // <CHANGE> Updated complaint text color to white with transparency
+    color: "rgba(255, 255, 255, 0.9)",
     fontSize: "1rem",
     lineHeight: "1.6",
     marginTop: "1rem",
     padding: "1rem",
-    background: "rgba(30, 41, 59, 0.5)",
+    // <CHANGE> Updated complaint text background for consistency
+    background: "rgba(255, 255, 255, 0.1)",
     borderRadius: "8px",
-    border: "1px solid rgba(148, 163, 184, 0.1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
   }
 
   const statsStyle = {
@@ -224,10 +235,11 @@ const SeeComplains = () => {
   }
 
   const statCardStyle = {
-    background: "rgba(15, 23, 42, 0.8)",
+    // <CHANGE> Updated stat card background for consistency with glassmorphic theme
+    background: "rgba(255, 255, 255, 0.1)",
     backdropFilter: "blur(20px)",
     borderRadius: "12px",
-    border: "1px solid rgba(148, 163, 184, 0.1)",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
     padding: "1.5rem 2rem",
     textAlign: "center",
     minWidth: "150px",
@@ -236,14 +248,14 @@ const SeeComplains = () => {
   const statNumberStyle = {
     fontSize: "2rem",
     fontWeight: "700",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
+    // <CHANGE> Updated stat number color to white
+    color: "white",
     marginBottom: "0.5rem",
   }
 
   const statLabelStyle = {
-    color: "#94a3b8",
+    // <CHANGE> Updated stat label color to white with transparency
+    color: "rgba(255, 255, 255, 0.8)",
     fontSize: "0.875rem",
     fontWeight: "500",
     textTransform: "uppercase",
@@ -255,43 +267,57 @@ const SeeComplains = () => {
       <style>{floatingAnimation}</style>
       <div style={containerStyle}>
         <div style={floatingElementsStyle}>
+          {/* <CHANGE> Updated floating elements to match previous components' style */}
           <div
             style={{
               position: "absolute",
               top: "10%",
               left: "10%",
-              width: "100px",
-              height: "100px",
-              background: "linear-gradient(135deg, #667eea, #764ba2)",
+              width: "80px",
+              height: "80px",
+              background: "rgba(255, 255, 255, 0.1)",
               borderRadius: "50%",
-              opacity: "0.1",
               animation: "float 6s ease-in-out infinite",
+              animationDelay: "0s"
             }}
           />
           <div
             style={{
               position: "absolute",
-              top: "60%",
-              right: "15%",
-              width: "150px",
-              height: "150px",
-              background: "linear-gradient(135deg, #764ba2, #667eea)",
-              borderRadius: "30%",
-              opacity: "0.1",
-              animation: "float 8s ease-in-out infinite reverse",
+              top: "20%",
+              right: "10%",
+              width: "120px",
+              height: "120px",
+              background: "rgba(255, 255, 255, 0.1)",
+              borderRadius: "50%",
+              animation: "float 6s ease-in-out infinite",
+              animationDelay: "2s"
             }}
           />
           <div
             style={{
               position: "absolute",
               bottom: "20%",
-              left: "20%",
-              width: "80px",
-              height: "80px",
-              background: "linear-gradient(135deg, #667eea, #764ba2)",
-              borderRadius: "40%",
-              opacity: "0.1",
-              animation: "float 7s ease-in-out infinite",
+              left: "15%",
+              width: "60px",
+              height: "60px",
+              background: "rgba(255, 255, 255, 0.1)",
+              borderRadius: "50%",
+              animation: "float 6s ease-in-out infinite",
+              animationDelay: "4s"
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              bottom: "10%",
+              right: "20%",
+              width: "100px",
+              height: "100px",
+              background: "rgba(255, 255, 255, 0.1)",
+              borderRadius: "50%",
+              animation: "float 6s ease-in-out infinite",
+              animationDelay: "1s"
             }}
           />
         </div>
@@ -308,8 +334,9 @@ const SeeComplains = () => {
                 style={{
                   width: "40px",
                   height: "40px",
-                  border: "3px solid rgba(102, 126, 234, 0.3)",
-                  borderTop: "3px solid #667eea",
+                  // <CHANGE> Updated loading spinner colors to white
+                  border: "3px solid rgba(255, 255, 255, 0.3)",
+                  borderTop: "3px solid white",
                   borderRadius: "50%",
                   animation: "spin 1s linear infinite",
                   marginRight: "1rem",
@@ -371,20 +398,20 @@ const SeeComplains = () => {
                                 type="checkbox"
                                 style={customCheckboxStyle}
                                 onMouseEnter={(e) => {
-                                  e.target.style.borderColor = "#667eea"
-                                  e.target.style.boxShadow = "0 0 10px rgba(102, 126, 234, 0.3)"
+                                  e.target.style.borderColor = "rgba(255, 255, 255, 0.6)"
+                                  e.target.style.boxShadow = "0 0 10px rgba(255, 255, 255, 0.3)"
                                 }}
                                 onMouseLeave={(e) => {
-                                  e.target.style.borderColor = "#475569"
+                                  e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
                                   e.target.style.boxShadow = "none"
                                 }}
                                 onChange={(e) => {
                                   if (e.target.checked) {
-                                    e.target.style.background = "linear-gradient(135deg, #667eea, #764ba2)"
-                                    e.target.style.borderColor = "#667eea"
+                                    e.target.style.background = "rgba(255, 255, 255, 0.3)"
+                                    e.target.style.borderColor = "rgba(255, 255, 255, 0.6)"
                                   } else {
                                     e.target.style.background = "transparent"
-                                    e.target.style.borderColor = "#475569"
+                                    e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
                                   }
                                 }}
                               />

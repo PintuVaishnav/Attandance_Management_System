@@ -79,8 +79,8 @@ const StudentExamMarks = ({ situation }) => {
       <style jsx>{`
                 @keyframes float {
                     0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    33% { transform: translateY(-10px) rotate(1deg); }
-                    66% { transform: translateY(5px) rotate(-1deg); }
+                    33% { transform: translateY(-20px) rotate(120deg); }
+                    66% { transform: translateY(-10px) rotate(240deg); }
                 }
                 
                 @keyframes pulse {
@@ -146,30 +146,31 @@ const StudentExamMarks = ({ situation }) => {
             fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
           }}
         >
+          {/* <CHANGE> Updated floating elements to match previous components' style */}
           <div
             className="floating-element"
             style={{
               position: "absolute",
               top: "10%",
               left: "10%",
-              width: "100px",
-              height: "100px",
+              width: "80px",
+              height: "80px",
               background: "rgba(255, 255, 255, 0.1)",
               borderRadius: "50%",
-              opacity: "0.6",
+              animationDelay: "0s"
             }}
           ></div>
           <div
             className="floating-element"
             style={{
               position: "absolute",
-              top: "60%",
-              right: "15%",
-              width: "150px",
-              height: "150px",
-              background: "rgba(255, 255, 255, 0.05)",
-              borderRadius: "30px",
-              opacity: "0.4",
+              top: "20%",
+              right: "10%",
+              width: "120px",
+              height: "120px",
+              background: "rgba(255, 255, 255, 0.1)",
+              borderRadius: "50%",
+              animationDelay: "2s"
             }}
           ></div>
           <div
@@ -177,12 +178,25 @@ const StudentExamMarks = ({ situation }) => {
             style={{
               position: "absolute",
               bottom: "20%",
-              left: "20%",
-              width: "80px",
-              height: "80px",
-              background: "rgba(255, 255, 255, 0.08)",
+              left: "15%",
+              width: "60px",
+              height: "60px",
+              background: "rgba(255, 255, 255, 0.1)",
               borderRadius: "50%",
-              opacity: "0.5",
+              animationDelay: "4s"
+            }}
+          ></div>
+          <div
+            className="floating-element"
+            style={{
+              position: "absolute",
+              bottom: "10%",
+              right: "20%",
+              width: "100px",
+              height: "100px",
+              background: "rgba(255, 255, 255, 0.1)",
+              borderRadius: "50%",
+              animationDelay: "1s"
             }}
           ></div>
 
@@ -199,14 +213,15 @@ const StudentExamMarks = ({ situation }) => {
           >
             <div
               style={{
-                background: "rgba(255, 255, 255, 0.95)",
+                // <CHANGE> Changed from white background to transparent glassmorphic background
+                background: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(20px)",
                 borderRadius: "24px",
                 padding: "48px",
                 maxWidth: "500px",
                 width: "100%",
-                boxShadow: "0 32px 64px rgba(0, 0, 0, 0.2)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
+                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
                 position: "relative",
               }}
             >
@@ -221,12 +236,12 @@ const StudentExamMarks = ({ situation }) => {
                   style={{
                     width: "80px",
                     height: "80px",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                     borderRadius: "20px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 8px 32px rgba(102, 126, 234, 0.3)",
+                    boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
                   }}
                 >
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -244,7 +259,8 @@ const StudentExamMarks = ({ situation }) => {
                   style={{
                     fontSize: "28px",
                     fontWeight: "700",
-                    color: "#1a1a1a",
+                    // <CHANGE> Changed to white color for glassmorphic background
+                    color: "white",
                     marginBottom: "8px",
                     lineHeight: "1.2",
                   }}
@@ -254,7 +270,8 @@ const StudentExamMarks = ({ situation }) => {
                 <p
                   style={{
                     fontSize: "16px",
-                    color: "#666",
+                    // <CHANGE> Changed to white with transparency for glassmorphic background
+                    color: "rgba(255, 255, 255, 0.8)",
                     margin: "0",
                   }}
                 >
@@ -265,17 +282,20 @@ const StudentExamMarks = ({ situation }) => {
               <div style={{ marginBottom: "32px" }}>
                 <div
                   style={{
-                    background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+                    // <CHANGE> Updated student info card background for consistency with glassmorphic theme
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
                     borderRadius: "16px",
                     padding: "20px",
                     marginBottom: "16px",
-                    border: "1px solid #e2e8f0",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                   }}
                 >
                   <div
                     style={{
                       fontSize: "14px",
-                      color: "#64748b",
+                      // <CHANGE> Changed to white with transparency for glassmorphic background
+                      color: "rgba(255, 255, 255, 0.8)",
                       marginBottom: "4px",
                       fontWeight: "500",
                     }}
@@ -285,7 +305,8 @@ const StudentExamMarks = ({ situation }) => {
                   <div
                     style={{
                       fontSize: "18px",
-                      color: "#1e293b",
+                      // <CHANGE> Changed to white color for glassmorphic background
+                      color: "white",
                       fontWeight: "600",
                     }}
                   >
@@ -296,16 +317,19 @@ const StudentExamMarks = ({ situation }) => {
                 {currentUser.teachSubject && (
                   <div
                     style={{
-                      background: "linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)",
+                      // <CHANGE> Updated subject info card background for consistency with glassmorphic theme
+                      background: "rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(10px)",
                       borderRadius: "16px",
                       padding: "20px",
-                      border: "1px solid #bae6fd",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
                     }}
                   >
                     <div
                       style={{
                         fontSize: "14px",
-                        color: "#0369a1",
+                        // <CHANGE> Changed to white with transparency for glassmorphic background
+                        color: "rgba(255, 255, 255, 0.8)",
                         marginBottom: "4px",
                         fontWeight: "500",
                       }}
@@ -315,7 +339,8 @@ const StudentExamMarks = ({ situation }) => {
                     <div
                       style={{
                         fontSize: "18px",
-                        color: "#0c4a6e",
+                        // <CHANGE> Changed to white color for glassmorphic background
+                        color: "white",
                         fontWeight: "600",
                       }}
                     >
@@ -334,7 +359,8 @@ const StudentExamMarks = ({ situation }) => {
                           display: "block",
                           fontSize: "14px",
                           fontWeight: "600",
-                          color: "#374151",
+                          // <CHANGE> Changed to white color for glassmorphic background
+                          color: "white",
                           marginBottom: "8px",
                         }}
                       >
@@ -348,32 +374,41 @@ const StudentExamMarks = ({ situation }) => {
                           width: "100%",
                           padding: "16px 20px",
                           fontSize: "16px",
-                          border: "2px solid #e5e7eb",
+                          // <CHANGE> Updated select styling for glassmorphic theme
+                          border: "1px solid rgba(255, 255, 255, 0.2)",
                           borderRadius: "12px",
-                          backgroundColor: "#ffffff",
-                          color: "#374151",
+                          background: "rgba(255, 255, 255, 0.1)",
+                          backdropFilter: "blur(10px)",
+                          color: "white",
                           outline: "none",
                           transition: "all 0.2s ease",
                           fontFamily: "inherit",
+                          cursor: "pointer",
+                          appearance: "none",
+                          backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+                          backgroundPosition: "right 12px center",
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "16px",
+                          paddingRight: "48px",
                         }}
                         onFocus={(e) => {
-                          e.target.style.borderColor = "#667eea"
-                          e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                          e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                          e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                         }}
                         onBlur={(e) => {
-                          e.target.style.borderColor = "#e5e7eb"
+                          e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                           e.target.style.boxShadow = "none"
                         }}
                       >
-                        <option value="">Choose a subject</option>
+                        <option value="" style={{ background: "#374151", color: "white" }}>Choose a subject</option>
                         {subjectsList ? (
                           subjectsList.map((subject, index) => (
-                            <option key={index} value={subject.subName}>
+                            <option key={index} value={subject.subName} style={{ background: "#374151", color: "white" }}>
                               {subject.subName}
                             </option>
                           ))
                         ) : (
-                          <option value="">Add Subjects For Marks</option>
+                          <option value="" style={{ background: "#374151", color: "white" }}>Add Subjects For Marks</option>
                         )}
                       </select>
                     </div>
@@ -385,7 +420,8 @@ const StudentExamMarks = ({ situation }) => {
                         display: "block",
                         fontSize: "14px",
                         fontWeight: "600",
-                        color: "#374151",
+                        // <CHANGE> Changed to white color for glassmorphic background
+                        color: "white",
                         marginBottom: "8px",
                       }}
                     >
@@ -403,20 +439,23 @@ const StudentExamMarks = ({ situation }) => {
                         width: "100%",
                         padding: "16px 20px",
                         fontSize: "16px",
-                        border: "2px solid #e5e7eb",
+                        // <CHANGE> Updated input styling for glassmorphic theme
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
                         borderRadius: "12px",
-                        backgroundColor: "#ffffff",
-                        color: "#374151",
+                        background: "rgba(255, 255, 255, 0.1)",
+                        backdropFilter: "blur(10px)",
+                        color: "white",
                         outline: "none",
                         transition: "all 0.2s ease",
                         fontFamily: "inherit",
+                        boxSizing: "border-box",
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = "#667eea"
-                        e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                        e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                       }}
                       onBlur={(e) => {
-                        e.target.style.borderColor = "#e5e7eb"
+                        e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                         e.target.style.boxShadow = "none"
                       }}
                     />
@@ -432,7 +471,7 @@ const StudentExamMarks = ({ situation }) => {
                     fontSize: "16px",
                     fontWeight: "600",
                     color: "white",
-                    background: loader ? "#9ca3af" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    background: loader ? "rgba(255, 255, 255, 0.2)" : "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                     border: "none",
                     borderRadius: "12px",
                     cursor: loader ? "not-allowed" : "pointer",
@@ -441,19 +480,19 @@ const StudentExamMarks = ({ situation }) => {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "8px",
-                    boxShadow: loader ? "none" : "0 4px 16px rgba(102, 126, 234, 0.3)",
+                    boxShadow: loader ? "none" : "0 4px 16px rgba(81, 207, 102, 0.3)",
                     fontFamily: "inherit",
                   }}
                   onMouseEnter={(e) => {
                     if (!loader) {
                       e.target.style.transform = "translateY(-2px)"
-                      e.target.style.boxShadow = "0 8px 24px rgba(102, 126, 234, 0.4)"
+                      e.target.style.boxShadow = "0 8px 24px rgba(81, 207, 102, 0.4)"
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!loader) {
                       e.target.style.transform = "translateY(0)"
-                      e.target.style.boxShadow = "0 4px 16px rgba(102, 126, 234, 0.3)"
+                      e.target.style.boxShadow = "0 4px 16px rgba(81, 207, 102, 0.3)"
                     }
                   }}
                 >

@@ -94,52 +94,70 @@ const AddStudent = ({ situation }) => {
           overflow: "hidden",
         }}
       >
+        {/* <CHANGE> Updated floating elements to match previous components' style */}
         <div
           style={{
             position: "absolute",
             top: "10%",
             left: "10%",
-            width: "100px",
-            height: "100px",
+            width: "80px",
+            height: "80px",
             background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
             animation: "float 6s ease-in-out infinite",
+            animationDelay: "0s"
           }}
         ></div>
         <div
           style={{
             position: "absolute",
-            top: "60%",
-            right: "15%",
-            width: "150px",
-            height: "150px",
-            background: "rgba(255, 255, 255, 0.05)",
+            top: "20%",
+            right: "10%",
+            width: "120px",
+            height: "120px",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            animation: "float 8s ease-in-out infinite reverse",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "2s"
           }}
         ></div>
         <div
           style={{
             position: "absolute",
             bottom: "20%",
-            left: "20%",
-            width: "80px",
-            height: "80px",
-            background: "rgba(255, 255, 255, 0.08)",
+            left: "15%",
+            width: "60px",
+            height: "60px",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            animation: "float 7s ease-in-out infinite",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "4s"
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10%",
+            right: "20%",
+            width: "100px",
+            height: "100px",
+            background: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "50%",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "1s"
           }}
         ></div>
 
         <div
           style={{
-            background: "rgba(255, 255, 255, 0.95)",
+            // <CHANGE> Changed from white background to transparent glassmorphic background
+            background: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(20px)",
             borderRadius: "24px",
             padding: "48px",
             width: "100%",
             maxWidth: "500px",
-            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             position: "relative",
             zIndex: 1,
@@ -155,13 +173,13 @@ const AddStudent = ({ situation }) => {
               style={{
                 width: "80px",
                 height: "80px",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                borderRadius: "50%",
+                background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                borderRadius: "20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "0 auto 20px",
-                boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)",
+                boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
               }}
             >
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,9 +194,8 @@ const AddStudent = ({ situation }) => {
               style={{
                 fontSize: "32px",
                 fontWeight: "700",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                // <CHANGE> Changed to white color for glassmorphic background
+                color: "white",
                 margin: "0 0 8px 0",
                 letterSpacing: "-0.5px",
               }}
@@ -187,7 +204,8 @@ const AddStudent = ({ situation }) => {
             </h1>
             <p
               style={{
-                color: "#6b7280",
+                // <CHANGE> Changed to white with transparency for glassmorphic background
+                color: "rgba(255, 255, 255, 0.8)",
                 fontSize: "16px",
                 margin: 0,
                 fontWeight: "400",
@@ -203,7 +221,8 @@ const AddStudent = ({ situation }) => {
                 style={{
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#374151",
+                  // <CHANGE> Changed to white color for glassmorphic background
+                  color: "white",
                   marginBottom: "4px",
                 }}
               >
@@ -218,20 +237,24 @@ const AddStudent = ({ situation }) => {
                 required
                 style={{
                   padding: "16px 20px",
-                  border: "2px solid #e5e7eb",
+                  // <CHANGE> Updated input styling for glassmorphic theme
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
                   fontSize: "16px",
                   transition: "all 0.3s ease",
-                  background: "#ffffff",
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(10px)",
+                  color: "white",
                   outline: "none",
                   fontFamily: "inherit",
+                  boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea"
-                  e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                  e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "#e5e7eb"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                   e.target.style.boxShadow = "none"
                 }}
               />
@@ -243,7 +266,8 @@ const AddStudent = ({ situation }) => {
                   style={{
                     fontSize: "14px",
                     fontWeight: "600",
-                    color: "#374151",
+                    // <CHANGE> Changed to white color for glassmorphic background
+                    color: "white",
                     marginBottom: "4px",
                   }}
                 >
@@ -255,27 +279,31 @@ const AddStudent = ({ situation }) => {
                   required
                   style={{
                     padding: "16px 20px",
-                    border: "2px solid #e5e7eb",
+                    // <CHANGE> Updated select styling for glassmorphic theme
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                     borderRadius: "12px",
                     fontSize: "16px",
                     transition: "all 0.3s ease",
-                    background: "#ffffff",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    color: "white",
                     outline: "none",
                     fontFamily: "inherit",
                     cursor: "pointer",
+                    boxSizing: "border-box",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#667eea"
-                    e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                    e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                     e.target.style.boxShadow = "none"
                   }}
                 >
-                  <option value="Select Class">Select Class</option>
+                  <option value="Select Class" style={{ background: "#374151", color: "white" }}>Select Class</option>
                   {sclassesList.map((classItem, index) => (
-                    <option key={index} value={classItem.sclassName}>
+                    <option key={index} value={classItem.sclassName} style={{ background: "#374151", color: "white" }}>
                       {classItem.sclassName}
                     </option>
                   ))}
@@ -288,7 +316,8 @@ const AddStudent = ({ situation }) => {
                 style={{
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#374151",
+                  // <CHANGE> Changed to white color for glassmorphic background
+                  color: "white",
                   marginBottom: "4px",
                 }}
               >
@@ -302,20 +331,24 @@ const AddStudent = ({ situation }) => {
                 required
                 style={{
                   padding: "16px 20px",
-                  border: "2px solid #e5e7eb",
+                  // <CHANGE> Updated input styling for glassmorphic theme
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
                   fontSize: "16px",
                   transition: "all 0.3s ease",
-                  background: "#ffffff",
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(10px)",
+                  color: "white",
                   outline: "none",
                   fontFamily: "inherit",
+                  boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea"
-                  e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                  e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "#e5e7eb"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                   e.target.style.boxShadow = "none"
                 }}
               />
@@ -326,7 +359,8 @@ const AddStudent = ({ situation }) => {
                 style={{
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#374151",
+                  // <CHANGE> Changed to white color for glassmorphic background
+                  color: "white",
                   marginBottom: "4px",
                 }}
               >
@@ -341,20 +375,24 @@ const AddStudent = ({ situation }) => {
                 required
                 style={{
                   padding: "16px 20px",
-                  border: "2px solid #e5e7eb",
+                  // <CHANGE> Updated input styling for glassmorphic theme
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRadius: "12px",
                   fontSize: "16px",
                   transition: "all 0.3s ease",
-                  background: "#ffffff",
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(10px)",
+                  color: "white",
                   outline: "none",
                   fontFamily: "inherit",
+                  boxSizing: "border-box",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea"
-                  e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                  e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "#e5e7eb"
+                  e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
                   e.target.style.boxShadow = "none"
                 }}
               />
@@ -364,7 +402,7 @@ const AddStudent = ({ situation }) => {
               type="submit"
               disabled={loader}
               style={{
-                background: loader ? "#9ca3af" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                background: loader ? "rgba(255, 255, 255, 0.2)" : "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                 color: "white",
                 border: "none",
                 borderRadius: "12px",
@@ -378,19 +416,20 @@ const AddStudent = ({ situation }) => {
                 justifyContent: "center",
                 gap: "8px",
                 marginTop: "8px",
-                boxShadow: loader ? "none" : "0 10px 30px rgba(102, 126, 234, 0.3)",
+                boxShadow: loader ? "none" : "0 4px 16px rgba(81, 207, 102, 0.3)",
                 transform: loader ? "none" : "translateY(0px)",
+                opacity: loader ? 0.7 : 1,
               }}
               onMouseEnter={(e) => {
                 if (!loader) {
                   e.target.style.transform = "translateY(-2px)"
-                  e.target.style.boxShadow = "0 15px 40px rgba(102, 126, 234, 0.4)"
+                  e.target.style.boxShadow = "0 6px 20px rgba(81, 207, 102, 0.4)"
                 }
               }}
               onMouseLeave={(e) => {
                 if (!loader) {
                   e.target.style.transform = "translateY(0px)"
-                  e.target.style.boxShadow = "0 10px 30px rgba(102, 126, 234, 0.3)"
+                  e.target.style.boxShadow = "0 4px 16px rgba(81, 207, 102, 0.3)"
                 }
               }}
             >
@@ -427,15 +466,16 @@ const AddStudent = ({ situation }) => {
         </div>
 
         <style jsx>{`
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-20px); }
-                    }
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                `}</style>
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+          }
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}</style>
       </div>
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
     </>

@@ -51,9 +51,10 @@ const ShowStudents = () => {
     return (
       <div
         style={{
-          background: "rgba(255, 255, 255, 0.03)",
+          // <CHANGE> Updated card background for consistency with glassmorphic theme
+          background: "rgba(255, 255, 255, 0.1)",
           backdropFilter: "blur(20px)",
-          border: "1px solid rgba(255, 255, 255, 0.1)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
           borderRadius: "16px",
           padding: "24px",
           marginBottom: "16px",
@@ -63,16 +64,18 @@ const ShowStudents = () => {
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-2px)"
-          e.currentTarget.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.3)"
-          e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)"
+          e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 255, 255, 0.15)"
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)"
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0)"
-          e.currentTarget.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.2)"
-          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)"
+          e.currentTarget.style.boxShadow = "none"
+          e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)"
+          e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
         }}
       >
-        {/* Background decoration */}
+        {/* <CHANGE> Updated background decoration to match white theme */}
         <div
           style={{
             position: "absolute",
@@ -80,7 +83,7 @@ const ShowStudents = () => {
             right: "-50%",
             width: "100px",
             height: "100px",
-            background: "linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
             filter: "blur(20px)",
             zIndex: 0,
@@ -108,7 +111,7 @@ const ShowStudents = () => {
                   style={{
                     width: "48px",
                     height: "48px",
-                    background: "linear-gradient(135deg, #3b82f6, #9333ea)",
+                    background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                     borderRadius: "12px",
                     display: "flex",
                     alignItems: "center",
@@ -138,7 +141,8 @@ const ShowStudents = () => {
                       display: "flex",
                       gap: "16px",
                       fontSize: "14px",
-                      color: "rgba(255, 255, 255, 0.7)",
+                      // <CHANGE> Updated text color to white with transparency
+                      color: "rgba(255, 255, 255, 0.8)",
                     }}
                   >
                     <span>Roll: {student.rollNum}</span>
@@ -189,7 +193,7 @@ const ShowStudents = () => {
               <button
                 onClick={() => navigate("/Admin/students/student/" + student._id)}
                 style={{
-                  background: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   border: "none",
                   borderRadius: "8px",
                   padding: "8px 16px",
@@ -202,7 +206,7 @@ const ShowStudents = () => {
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.05)"
-                  e.target.style.boxShadow = "0 4px 12px rgba(59, 130, 246, 0.4)"
+                  e.target.style.boxShadow = "0 4px 12px rgba(81, 207, 102, 0.4)"
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.transform = "scale(1)"
@@ -260,14 +264,15 @@ const ShowStudents = () => {
                       top: "100%",
                       right: "0",
                       marginTop: "8px",
-                      background: "rgba(17, 24, 39, 0.95)",
+                      // <CHANGE> Updated dropdown background for consistency
+                      background: "rgba(255, 255, 255, 0.1)",
                       backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
                       borderRadius: "12px",
                       padding: "8px",
                       minWidth: "180px",
                       zIndex: 1000,
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+                      boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
                     }}
                   >
                     {actions.map((action, index) => (
@@ -291,7 +296,7 @@ const ShowStudents = () => {
                           fontFamily: "system-ui, -apple-system, sans-serif",
                         }}
                         onMouseEnter={(e) => {
-                          e.target.style.background = "rgba(59, 130, 246, 0.1)"
+                          e.target.style.background = "rgba(255, 255, 255, 0.1)"
                         }}
                         onMouseLeave={(e) => {
                           e.target.style.background = "transparent"
@@ -344,7 +349,9 @@ const ShowStudents = () => {
             >
               <span
                 style={{
-                  background: "rgba(17, 24, 39, 0.9)",
+                  // <CHANGE> Updated FAB label background for consistency
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(20px)",
                   color: "white",
                   padding: "8px 12px",
                   borderRadius: "8px",
@@ -352,6 +359,7 @@ const ShowStudents = () => {
                   fontWeight: "500",
                   whiteSpace: "nowrap",
                   fontFamily: "system-ui, -apple-system, sans-serif",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
                 Add New Student
@@ -361,7 +369,7 @@ const ShowStudents = () => {
                 style={{
                   width: "48px",
                   height: "48px",
-                  background: "linear-gradient(135deg, #10b981, #059669)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   border: "none",
                   borderRadius: "12px",
                   color: "white",
@@ -370,7 +378,7 @@ const ShowStudents = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   transition: "all 0.2s ease",
-                  boxShadow: "0 8px 32px rgba(16, 185, 129, 0.3)",
+                  boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.1)"
@@ -395,7 +403,9 @@ const ShowStudents = () => {
             >
               <span
                 style={{
-                  background: "rgba(17, 24, 39, 0.9)",
+                  // <CHANGE> Updated FAB label background for consistency
+                  background: "rgba(255, 255, 255, 0.1)",
+                  backdropFilter: "blur(20px)",
                   color: "white",
                   padding: "8px 12px",
                   borderRadius: "8px",
@@ -403,6 +413,7 @@ const ShowStudents = () => {
                   fontWeight: "500",
                   whiteSpace: "nowrap",
                   fontFamily: "system-ui, -apple-system, sans-serif",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
                 Delete All Students
@@ -444,7 +455,8 @@ const ShowStudents = () => {
           style={{
             width: "56px",
             height: "56px",
-            background: "linear-gradient(135deg, #3b82f6, #9333ea)",
+            // <CHANGE> Updated main FAB background to match purple theme
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             border: "none",
             borderRadius: "16px",
             color: "white",
@@ -453,15 +465,15 @@ const ShowStudents = () => {
             alignItems: "center",
             justifyContent: "center",
             transition: "all 0.3s ease",
-            boxShadow: "0 8px 32px rgba(59, 130, 246, 0.4)",
+            boxShadow: "0 8px 32px rgba(102, 126, 234, 0.4)",
           }}
           onMouseEnter={(e) => {
             e.target.style.transform = "scale(1.1)"
-            e.target.style.boxShadow = "0 12px 40px rgba(59, 130, 246, 0.5)"
+            e.target.style.boxShadow = "0 12px 40px rgba(102, 126, 234, 0.5)"
           }}
           onMouseLeave={(e) => {
             e.target.style.transform = "scale(1)"
-            e.target.style.boxShadow = "0 8px 32px rgba(59, 130, 246, 0.4)"
+            e.target.style.boxShadow = "0 8px 32px rgba(102, 126, 234, 0.4)"
           }}
         >
           <svg
@@ -485,34 +497,63 @@ const ShowStudents = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
+        // <CHANGE> Updated background to match purple gradient from previous components
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Background Elements */}
+      {/* <CHANGE> Updated floating elements to match previous components' style */}
       <div
         style={{
           position: "absolute",
           top: "10%",
           left: "10%",
-          width: "300px",
-          height: "300px",
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)",
+          width: "80px",
+          height: "80px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
+          animationDelay: "0s"
         }}
       />
       <div
         style={{
           position: "absolute",
-          top: "60%",
-          right: "15%",
-          width: "200px",
-          height: "200px",
-          background: "radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%)",
+          top: "20%",
+          right: "10%",
+          width: "120px",
+          height: "120px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
-          animation: "float 8s ease-in-out infinite reverse",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "2s"
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          left: "15%",
+          width: "60px",
+          height: "60px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "4s"
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: "100px",
+          height: "100px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "1s"
         }}
       />
 
@@ -539,7 +580,7 @@ const ShowStudents = () => {
               fontWeight: "700",
               margin: "0 0 12px 0",
               fontFamily: "system-ui, -apple-system, sans-serif",
-              background: "linear-gradient(135deg, #3b82f6, #9333ea)",
+              background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -549,7 +590,8 @@ const ShowStudents = () => {
           </h1>
           <p
             style={{
-              color: "rgba(255, 255, 255, 0.7)",
+              // <CHANGE> Updated subtitle color to white with transparency
+              color: "rgba(255, 255, 255, 0.8)",
               fontSize: "16px",
               margin: 0,
               fontFamily: "system-ui, -apple-system, sans-serif",
@@ -572,8 +614,9 @@ const ShowStudents = () => {
               style={{
                 width: "60px",
                 height: "60px",
-                border: "3px solid rgba(59, 130, 246, 0.3)",
-                borderTop: "3px solid #3b82f6",
+                // <CHANGE> Updated loading spinner colors to white
+                border: "3px solid rgba(255, 255, 255, 0.3)",
+                borderTop: "3px solid white",
                 borderRadius: "50%",
                 animation: "spin 1s linear infinite",
               }}
@@ -592,7 +635,7 @@ const ShowStudents = () => {
                   style={{
                     width: "120px",
                     height: "120px",
-                    background: "linear-gradient(135deg, #3b82f6, #9333ea)",
+                    background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -616,7 +659,8 @@ const ShowStudents = () => {
                 </h2>
                 <p
                   style={{
-                    color: "rgba(255, 255, 255, 0.7)",
+                    // <CHANGE> Updated empty state text color to white with transparency
+                    color: "rgba(255, 255, 255, 0.8)",
                     fontSize: "16px",
                     margin: "0 0 32px 0",
                     fontFamily: "system-ui, -apple-system, sans-serif",
@@ -627,7 +671,7 @@ const ShowStudents = () => {
                 <button
                   onClick={() => navigate("/Admin/addstudents")}
                   style={{
-                    background: "linear-gradient(135deg, #10b981, #059669)",
+                    background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                     border: "none",
                     borderRadius: "12px",
                     padding: "16px 32px",
@@ -637,15 +681,15 @@ const ShowStudents = () => {
                     fontWeight: "600",
                     transition: "all 0.2s ease",
                     fontFamily: "system-ui, -apple-system, sans-serif",
-                    boxShadow: "0 8px 32px rgba(16, 185, 129, 0.3)",
+                    boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
                   }}
                   onMouseEnter={(e) => {
                     e.target.style.transform = "translateY(-2px)"
-                    e.target.style.boxShadow = "0 12px 40px rgba(16, 185, 129, 0.4)"
+                    e.target.style.boxShadow = "0 12px 40px rgba(81, 207, 102, 0.4)"
                   }}
                   onMouseLeave={(e) => {
                     e.target.style.transform = "translateY(0)"
-                    e.target.style.boxShadow = "0 8px 32px rgba(16, 185, 129, 0.3)"
+                    e.target.style.boxShadow = "0 8px 32px rgba(81, 207, 102, 0.3)"
                   }}
                 >
                   Add Students
@@ -664,9 +708,10 @@ const ShowStudents = () => {
                 >
                   <div
                     style={{
-                      background: "rgba(255, 255, 255, 0.03)",
+                      // <CHANGE> Updated statistics card background for consistency
+                      background: "rgba(255, 255, 255, 0.1)",
                       backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
                       borderRadius: "16px",
                       padding: "24px",
                       textAlign: "center",
@@ -676,7 +721,8 @@ const ShowStudents = () => {
                       style={{
                         fontSize: "32px",
                         fontWeight: "700",
-                        color: "#3b82f6",
+                        // <CHANGE> Updated stat number color to white
+                        color: "white",
                         marginBottom: "8px",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                       }}
@@ -685,7 +731,8 @@ const ShowStudents = () => {
                     </div>
                     <div
                       style={{
-                        color: "rgba(255, 255, 255, 0.7)",
+                        // <CHANGE> Updated stat label color to white with transparency
+                        color: "rgba(255, 255, 255, 0.8)",
                         fontSize: "14px",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                       }}
@@ -696,9 +743,10 @@ const ShowStudents = () => {
 
                   <div
                     style={{
-                      background: "rgba(255, 255, 255, 0.03)",
+                      // <CHANGE> Updated statistics card background for consistency
+                      background: "rgba(255, 255, 255, 0.1)",
                       backdropFilter: "blur(20px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
                       borderRadius: "16px",
                       padding: "24px",
                       textAlign: "center",
@@ -708,7 +756,8 @@ const ShowStudents = () => {
                       style={{
                         fontSize: "32px",
                         fontWeight: "700",
-                        color: "#10b981",
+                        // <CHANGE> Updated stat number color to white
+                        color: "white",
                         marginBottom: "8px",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                       }}
@@ -717,7 +766,8 @@ const ShowStudents = () => {
                     </div>
                     <div
                       style={{
-                        color: "rgba(255, 255, 255, 0.7)",
+                        // <CHANGE> Updated stat label color to white with transparency
+                        color: "rgba(255, 255, 255, 0.8)",
                         fontSize: "14px",
                         fontFamily: "system-ui, -apple-system, sans-serif",
                       }}
@@ -746,27 +796,28 @@ const ShowStudents = () => {
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
 
       <style jsx>{`
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-20px); }
-                }
-                
-                @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-                
-                @keyframes fadeInUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-            `}</style>
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-20px) rotate(120deg); }
+          66% { transform: translateY(-10px) rotate(240deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   )
 }

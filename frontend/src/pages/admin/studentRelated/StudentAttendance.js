@@ -96,13 +96,14 @@ const StudentAttendance = ({ situation }) => {
   }
 
   const cardStyle = {
-    background: "rgba(255, 255, 255, 0.95)",
+    // <CHANGE> Changed from white background to transparent glassmorphic background
+    background: "rgba(255, 255, 255, 0.1)",
     backdropFilter: "blur(20px)",
     borderRadius: "24px",
     padding: "48px",
     maxWidth: "600px",
     width: "100%",
-    boxShadow: "0 32px 64px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
     border: "1px solid rgba(255, 255, 255, 0.2)",
     position: "relative",
     zIndex: 2,
@@ -116,9 +117,10 @@ const StudentAttendance = ({ situation }) => {
   const titleStyle = {
     fontSize: "32px",
     fontWeight: "700",
-    color: "#2d3748",
+    // <CHANGE> Changed to white color for glassmorphic background
+    color: "white",
     marginBottom: "16px",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -126,7 +128,8 @@ const StudentAttendance = ({ situation }) => {
 
   const subtitleStyle = {
     fontSize: "18px",
-    color: "#718096",
+    // <CHANGE> Changed to white with transparency for glassmorphic background
+    color: "rgba(255, 255, 255, 0.8)",
     fontWeight: "500",
   }
 
@@ -138,7 +141,8 @@ const StudentAttendance = ({ situation }) => {
     display: "block",
     fontSize: "16px",
     fontWeight: "600",
-    color: "#4a5568",
+    // <CHANGE> Changed to white color for glassmorphic background
+    color: "white",
     marginBottom: "12px",
   }
 
@@ -146,18 +150,22 @@ const StudentAttendance = ({ situation }) => {
     width: "100%",
     padding: "16px 20px",
     fontSize: "16px",
-    border: "2px solid #e2e8f0",
+    // <CHANGE> Updated input styling for glassmorphic theme
+    border: "1px solid rgba(255, 255, 255, 0.2)",
     borderRadius: "12px",
-    background: "#ffffff",
-    color: "#2d3748",
+    background: "rgba(255, 255, 255, 0.1)",
+    backdropFilter: "blur(10px)",
+    color: "white",
     transition: "all 0.3s ease",
     outline: "none",
     fontFamily: "inherit",
+    boxSizing: "border-box",
   }
 
   const inputFocusStyle = {
-    borderColor: "#667eea",
-    boxShadow: "0 0 0 3px rgba(102, 126, 234, 0.1)",
+    borderColor: "rgba(255, 255, 255, 0.4)",
+    boxShadow: "0 0 0 3px rgba(255, 255, 255, 0.1)",
+    background: "rgba(255, 255, 255, 0.15)",
     transform: "translateY(-2px)",
   }
 
@@ -165,7 +173,7 @@ const StudentAttendance = ({ situation }) => {
     ...inputStyle,
     cursor: "pointer",
     appearance: "none",
-    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
     backgroundPosition: "right 12px center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "16px",
@@ -178,7 +186,7 @@ const StudentAttendance = ({ situation }) => {
     fontSize: "18px",
     fontWeight: "600",
     color: "#ffffff",
-    background: loader ? "#a0aec0" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    background: loader ? "rgba(255, 255, 255, 0.2)" : "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
     border: "none",
     borderRadius: "12px",
     cursor: loader ? "not-allowed" : "pointer",
@@ -188,7 +196,7 @@ const StudentAttendance = ({ situation }) => {
     justifyContent: "center",
     gap: "12px",
     marginTop: "24px",
-    boxShadow: loader ? "none" : "0 8px 32px rgba(102, 126, 234, 0.3)",
+    boxShadow: loader ? "none" : "0 8px 32px rgba(81, 207, 102, 0.3)",
   }
 
   const loadingSpinnerStyle = {
@@ -215,57 +223,16 @@ const StudentAttendance = ({ situation }) => {
     <>
       <style>
         {`
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px) rotate(0deg); }
-                        33% { transform: translateY(-30px) rotate(120deg); }
-                        66% { transform: translateY(-20px) rotate(240deg); }
-                    }
-                    .floating-element {
-                        position: absolute;
-                        opacity: 0.1;
-                        animation: float 20s ease-in-out infinite;
-                    }
-                    .floating-element:nth-child(1) {
-                        top: 10%;
-                        left: 10%;
-                        width: 80px;
-                        height: 80px;
-                        background: linear-gradient(45deg, #667eea, #764ba2);
-                        border-radius: 50%;
-                        animation-delay: 0s;
-                    }
-                    .floating-element:nth-child(2) {
-                        top: 20%;
-                        right: 10%;
-                        width: 120px;
-                        height: 120px;
-                        background: linear-gradient(45deg, #764ba2, #667eea);
-                        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-                        animation-delay: 5s;
-                    }
-                    .floating-element:nth-child(3) {
-                        bottom: 20%;
-                        left: 15%;
-                        width: 100px;
-                        height: 100px;
-                        background: linear-gradient(45deg, #667eea, #764ba2);
-                        border-radius: 20px;
-                        animation-delay: 10s;
-                    }
-                    .floating-element:nth-child(4) {
-                        bottom: 30%;
-                        right: 20%;
-                        width: 60px;
-                        height: 60px;
-                        background: linear-gradient(45deg, #764ba2, #667eea);
-                        border-radius: 50%;
-                        animation-delay: 15s;
-                    }
-                `}
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+          }
+        `}
       </style>
       {loading ? (
         <div style={loadingStyle}>
@@ -275,10 +242,59 @@ const StudentAttendance = ({ situation }) => {
       ) : (
         <div style={containerStyle}>
           <div style={floatingElementsStyle}>
-            <div className="floating-element"></div>
-            <div className="floating-element"></div>
-            <div className="floating-element"></div>
-            <div className="floating-element"></div>
+            {/* <CHANGE> Updated floating elements to match previous components' style */}
+            <div
+              style={{
+                position: "absolute",
+                top: "10%",
+                left: "10%",
+                width: "80px",
+                height: "80px",
+                background: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "50%",
+                animation: "float 6s ease-in-out infinite",
+                animationDelay: "0s"
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "20%",
+                right: "10%",
+                width: "120px",
+                height: "120px",
+                background: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "50%",
+                animation: "float 6s ease-in-out infinite",
+                animationDelay: "2s"
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "20%",
+                left: "15%",
+                width: "60px",
+                height: "60px",
+                background: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "50%",
+                animation: "float 6s ease-in-out infinite",
+                animationDelay: "4s"
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                bottom: "10%",
+                right: "20%",
+                width: "100px",
+                height: "100px",
+                background: "rgba(255, 255, 255, 0.1)",
+                borderRadius: "50%",
+                animation: "float 6s ease-in-out infinite",
+                animationDelay: "1s"
+              }}
+            />
           </div>
 
           <div style={cardStyle}>
@@ -287,13 +303,13 @@ const StudentAttendance = ({ situation }) => {
                 style={{
                   width: "80px",
                   height: "80px",
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   borderRadius: "20px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   margin: "0 auto 24px",
-                  boxShadow: "0 8px 32px rgba(102, 126, 234, 0.3)",
+                  boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
                 }}
               >
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,21 +339,22 @@ const StudentAttendance = ({ situation }) => {
                     onFocus={(e) => Object.assign(e.target.style, inputFocusStyle)}
                     onBlur={(e) =>
                       Object.assign(e.target.style, {
-                        borderColor: "#e2e8f0",
+                        borderColor: "rgba(255, 255, 255, 0.2)",
                         boxShadow: "none",
+                        background: "rgba(255, 255, 255, 0.1)",
                         transform: "translateY(0)",
                       })
                     }
                   >
-                    <option value="">Choose a subject</option>
+                    <option value="" style={{ background: "#374151", color: "white" }}>Choose a subject</option>
                     {subjectsList ? (
                       subjectsList.map((subject, index) => (
-                        <option key={index} value={subject.subName}>
+                        <option key={index} value={subject.subName} style={{ background: "#374151", color: "white" }}>
                           {subject.subName}
                         </option>
                       ))
                     ) : (
-                      <option value="">Add Subjects For Attendance</option>
+                      <option value="" style={{ background: "#374151", color: "white" }}>Add Subjects For Attendance</option>
                     )}
                   </select>
                 </div>
@@ -353,15 +370,16 @@ const StudentAttendance = ({ situation }) => {
                   onFocus={(e) => Object.assign(e.target.style, inputFocusStyle)}
                   onBlur={(e) =>
                     Object.assign(e.target.style, {
-                      borderColor: "#e2e8f0",
+                      borderColor: "rgba(255, 255, 255, 0.2)",
                       boxShadow: "none",
+                      background: "rgba(255, 255, 255, 0.1)",
                       transform: "translateY(0)",
                     })
                   }
                 >
-                  <option value="">Select status</option>
-                  <option value="Present">Present</option>
-                  <option value="Absent">Absent</option>
+                  <option value="" style={{ background: "#374151", color: "white" }}>Select status</option>
+                  <option value="Present" style={{ background: "#374151", color: "white" }}>Present</option>
+                  <option value="Absent" style={{ background: "#374151", color: "white" }}>Absent</option>
                 </select>
               </div>
 
@@ -376,8 +394,9 @@ const StudentAttendance = ({ situation }) => {
                   onFocus={(e) => Object.assign(e.target.style, inputFocusStyle)}
                   onBlur={(e) =>
                     Object.assign(e.target.style, {
-                      borderColor: "#e2e8f0",
+                      borderColor: "rgba(255, 255, 255, 0.2)",
                       boxShadow: "none",
+                      background: "rgba(255, 255, 255, 0.1)",
                       transform: "translateY(0)",
                     })
                   }
@@ -391,13 +410,13 @@ const StudentAttendance = ({ situation }) => {
                 onMouseEnter={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(-2px)"
-                    e.target.style.boxShadow = "0 12px 40px rgba(102, 126, 234, 0.4)"
+                    e.target.style.boxShadow = "0 12px 40px rgba(81, 207, 102, 0.4)"
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(0)"
-                    e.target.style.boxShadow = "0 8px 32px rgba(102, 126, 234, 0.3)"
+                    e.target.style.boxShadow = "0 8px 32px rgba(81, 207, 102, 0.3)"
                   }
                 }}
               >
