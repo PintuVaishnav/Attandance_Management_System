@@ -65,20 +65,24 @@ const ClassDetails = () => {
           style={{
             background: "rgba(239, 68, 68, 0.1)",
             border: "1px solid rgba(239, 68, 68, 0.3)",
-            borderRadius: "6px",
-            padding: "6px 8px",
+            borderRadius: "8px",
+            padding: "8px 12px",
             color: "#ef4444",
             cursor: "pointer",
             fontSize: "12px",
+            fontWeight: "500",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(10px)",
           }}
           onMouseEnter={(e) => {
             e.target.style.background = "rgba(239, 68, 68, 0.2)"
             e.target.style.transform = "translateY(-1px)"
+            e.target.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)"
           }}
           onMouseLeave={(e) => {
             e.target.style.background = "rgba(239, 68, 68, 0.1)"
             e.target.style.transform = "translateY(0)"
+            e.target.style.boxShadow = "none"
           }}
         >
           🗑️ Delete
@@ -86,21 +90,24 @@ const ClassDetails = () => {
         <button
           onClick={() => navigate(`/Admin/class/subject/${classID}/${row.id}`)}
           style={{
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            border: "none",
-            borderRadius: "6px",
-            padding: "6px 12px",
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "8px",
+            padding: "8px 12px",
             color: "white",
             cursor: "pointer",
             fontSize: "12px",
             fontWeight: "500",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(10px)",
           }}
           onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255, 255, 255, 0.2)"
             e.target.style.transform = "translateY(-1px)"
-            e.target.style.boxShadow = "0 4px 12px rgba(102, 126, 234, 0.4)"
+            e.target.style.boxShadow = "0 4px 12px rgba(255, 255, 255, 0.2)"
           }}
           onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255, 255, 255, 0.1)"
             e.target.style.transform = "translateY(0)"
             e.target.style.boxShadow = "none"
           }}
@@ -115,166 +122,285 @@ const ClassDetails = () => {
     return (
       <div style={{ padding: "20px" }}>
         {response ? (
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
-            <button
-              onClick={() => navigate("/Admin/addsubject/" + classID)}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "400px",
+              textAlign: "center",
+            }}
+          >
+            <div
               style={{
-                background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-                border: "none",
-                borderRadius: "8px",
-                padding: "12px 24px",
-                color: "white",
-                cursor: "pointer",
-                fontSize: "14px",
-                fontWeight: "600",
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 25px rgba(16, 185, 129, 0.4)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
+                padding: "40px",
+                maxWidth: "400px",
               }}
             >
-              ➕ Add Subjects
-            </button>
+              <div style={{ fontSize: "64px", marginBottom: "16px" }}>📚</div>
+              <h3
+                style={{
+                  color: "#ffffff",
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  margin: "0 0 8px 0",
+                }}
+              >
+                No Subjects Found
+              </h3>
+              <p
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "14px",
+                  margin: "0 0 24px 0",
+                }}
+              >
+                Get started by adding your first subject
+              </p>
+              <button
+                onClick={() => navigate("/Admin/addsubject/" + classID)}
+                style={{
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "12px 24px",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-2px)"
+                  e.target.style.boxShadow = "0 8px 25px rgba(81, 207, 102, 0.4)"
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)"
+                  e.target.style.boxShadow = "none"
+                }}
+              >
+                ➕ Add Subjects
+              </button>
+            </div>
           </div>
         ) : (
           <>
-            <h3
+            <div
               style={{
-                color: "white",
-                marginBottom: "20px",
-                fontSize: "18px",
-                fontWeight: "600",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "24px",
+                padding: "20px",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
               }}
             >
-              📚 Subjects List
-            </h3>
+              <div>
+                <h3
+                  style={{
+                    color: "white",
+                    marginBottom: "4px",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    margin: "0 0 4px 0",
+                  }}
+                >
+                  📚 Subjects List
+                </h3>
+                <p
+                  style={{
+                    color: "rgba(255, 255, 255, 0.8)",
+                    fontSize: "14px",
+                    margin: 0,
+                  }}
+                >
+                  {Array.isArray(subjectsList) ? subjectsList.length : 0} subjects found
+                </p>
+              </div>
+              <button
+                onClick={() => navigate("/Admin/addsubject/" + classID)}
+                style={{
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "10px 20px",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-1px)"
+                  e.target.style.boxShadow = "0 4px 15px rgba(81, 207, 102, 0.4)"
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)"
+                  e.target.style.boxShadow = "none"
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 5v14M5 12h14"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Add Subject
+              </button>
+            </div>
 
             <div
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                backdropFilter: "blur(10px)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: "12px",
-                overflow: "hidden",
+                display: "grid",
+                gap: "16px",
               }}
             >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "2fr 1fr 1fr",
-                  gap: "1px",
-                  background: "rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Subject Name
-                </div>
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Subject Code
-                </div>
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Actions
-                </div>
+              {subjectRows &&
+                subjectRows.map((row, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      background: "rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      borderRadius: "16px",
+                      padding: "24px",
+                      transition: "all 0.3s ease",
+                      cursor: "pointer",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)"
+                      e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 255, 255, 0.15)"
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)"
+                      e.currentTarget.style.boxShadow = "none"
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "3px",
+                        background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
+                        borderRadius: "16px 16px 0 0",
+                      }}
+                    ></div>
 
-                {subjectRows &&
-                  subjectRows.map((row, index) => (
-                    <>
-                      <div
-                        key={`name-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                          color: "#e5e7eb",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {row.name}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                      <div style={{ flex: 1, marginRight: "16px" }}>
+                        <h3
+                          style={{
+                            color: "#ffffff",
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            margin: "0 0 8px 0",
+                            lineHeight: "1.4",
+                          }}
+                        >
+                          {row.name}
+                        </h3>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            style={{ opacity: 0.6, color: "white" }}
+                          >
+                            <path
+                              d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <polyline
+                              points="14,2 14,8 20,8"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span
+                            style={{
+                              color: "rgba(255, 255, 255, 0.6)",
+                              fontSize: "13px",
+                            }}
+                          >
+                            Code: {row.code}
+                          </span>
+                        </div>
                       </div>
-                      <div
-                        key={`code-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                          color: "#e5e7eb",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {row.code}
-                      </div>
-                      <div
-                        key={`actions-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                        }}
-                      >
-                        <SubjectsButtonHaver row={row} />
-                      </div>
-                    </>
-                  ))}
-              </div>
+
+                      <SubjectsButtonHaver row={row} />
+                    </div>
+                  </div>
+                ))}
             </div>
 
             <div
               style={{
                 position: "fixed",
-                bottom: "20px",
-                right: "20px",
+                bottom: "24px",
+                right: "24px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
+                zIndex: 1000,
               }}
             >
               <button
                 onClick={() => navigate("/Admin/addsubject/" + classID)}
                 style={{
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   border: "none",
-                  borderRadius: "50px",
+                  borderRadius: "50%",
                   width: "56px",
                   height: "56px",
                   color: "white",
                   cursor: "pointer",
                   fontSize: "20px",
-                  boxShadow: "0 4px 20px rgba(102, 126, 234, 0.4)",
+                  boxShadow: "0 4px 20px rgba(81, 207, 102, 0.4)",
                   transition: "all 0.3s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.1)"
-                  e.target.style.boxShadow = "0 8px 30px rgba(102, 126, 234, 0.6)"
+                  e.target.style.boxShadow = "0 8px 30px rgba(81, 207, 102, 0.6)"
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.transform = "scale(1)"
-                  e.target.style.boxShadow = "0 4px 20px rgba(102, 126, 234, 0.4)"
+                  e.target.style.boxShadow = "0 4px 20px rgba(81, 207, 102, 0.4)"
                 }}
                 title="Add New Subject"
               >
@@ -285,7 +411,7 @@ const ClassDetails = () => {
                 style={{
                   background: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
                   border: "none",
-                  borderRadius: "50px",
+                  borderRadius: "50%",
                   width: "56px",
                   height: "56px",
                   color: "white",
@@ -293,6 +419,9 @@ const ClassDetails = () => {
                   fontSize: "20px",
                   boxShadow: "0 4px 20px rgba(239, 68, 68, 0.4)",
                   transition: "all 0.3s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.1)"
@@ -318,14 +447,6 @@ const ClassDetails = () => {
     { id: "rollNum", label: "Roll Number", minWidth: 100 },
   ]
 
-  const studentRows = sclassStudents.map((student) => {
-    return {
-      name: student.name,
-      rollNum: student.rollNum,
-      id: student._id,
-    }
-  })
-
   const StudentsButtonHaver = ({ row }) => {
     return (
       <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
@@ -334,20 +455,24 @@ const ClassDetails = () => {
           style={{
             background: "rgba(239, 68, 68, 0.1)",
             border: "1px solid rgba(239, 68, 68, 0.3)",
-            borderRadius: "6px",
-            padding: "6px 8px",
+            borderRadius: "8px",
+            padding: "8px 12px",
             color: "#ef4444",
             cursor: "pointer",
             fontSize: "12px",
+            fontWeight: "500",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(10px)",
           }}
           onMouseEnter={(e) => {
             e.target.style.background = "rgba(239, 68, 68, 0.2)"
             e.target.style.transform = "translateY(-1px)"
+            e.target.style.boxShadow = "0 4px 12px rgba(239, 68, 68, 0.3)"
           }}
           onMouseLeave={(e) => {
             e.target.style.background = "rgba(239, 68, 68, 0.1)"
             e.target.style.transform = "translateY(0)"
+            e.target.style.boxShadow = "none"
           }}
         >
           👤❌
@@ -355,21 +480,24 @@ const ClassDetails = () => {
         <button
           onClick={() => navigate("/Admin/students/student/" + row.id)}
           style={{
-            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            border: "none",
-            borderRadius: "6px",
-            padding: "6px 12px",
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "8px",
+            padding: "8px 12px",
             color: "white",
             cursor: "pointer",
             fontSize: "12px",
             fontWeight: "500",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(10px)",
           }}
           onMouseEnter={(e) => {
+            e.target.style.background = "rgba(255, 255, 255, 0.2)"
             e.target.style.transform = "translateY(-1px)"
-            e.target.style.boxShadow = "0 4px 12px rgba(102, 126, 234, 0.4)"
+            e.target.style.boxShadow = "0 4px 12px rgba(255, 255, 255, 0.2)"
           }}
           onMouseLeave={(e) => {
+            e.target.style.background = "rgba(255, 255, 255, 0.1)"
             e.target.style.transform = "translateY(0)"
             e.target.style.boxShadow = "none"
           }}
@@ -379,21 +507,24 @@ const ClassDetails = () => {
         <button
           onClick={() => navigate("/Admin/students/student/attendance/" + row.id)}
           style={{
-            background: "linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)",
-            border: "none",
-            borderRadius: "6px",
-            padding: "6px 12px",
-            color: "white",
+            background: "rgba(139, 92, 246, 0.2)",
+            border: "1px solid rgba(139, 92, 246, 0.3)",
+            borderRadius: "8px",
+            padding: "8px 12px",
+            color: "#8b5cf6",
             cursor: "pointer",
             fontSize: "12px",
             fontWeight: "500",
             transition: "all 0.2s ease",
+            backdropFilter: "blur(10px)",
           }}
           onMouseEnter={(e) => {
+            e.target.style.background = "rgba(139, 92, 246, 0.3)"
             e.target.style.transform = "translateY(-1px)"
             e.target.style.boxShadow = "0 4px 12px rgba(139, 92, 246, 0.4)"
           }}
           onMouseLeave={(e) => {
+            e.target.style.background = "rgba(139, 92, 246, 0.2)"
             e.target.style.transform = "translateY(0)"
             e.target.style.boxShadow = "none"
           }}
@@ -405,169 +536,297 @@ const ClassDetails = () => {
   }
 
   const ClassStudentsSection = () => {
+    const studentRows = sclassStudents.map((student) => {
+      return {
+        name: student.name,
+        rollNum: student.rollNum,
+        id: student._id,
+      }
+    })
+
     return (
       <div style={{ padding: "20px" }}>
         {getresponse ? (
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
-            <button
-              onClick={() => navigate("/Admin/class/addstudents/" + classID)}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "400px",
+              textAlign: "center",
+            }}
+          >
+            <div
               style={{
-                background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
-                border: "none",
-                borderRadius: "8px",
-                padding: "12px 24px",
-                color: "white",
-                cursor: "pointer",
-                fontSize: "14px",
-                fontWeight: "600",
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 25px rgba(16, 185, 129, 0.4)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
+                padding: "40px",
+                maxWidth: "400px",
               }}
             >
-              ➕ Add Students
-            </button>
+              <div style={{ fontSize: "64px", marginBottom: "16px" }}>👥</div>
+              <h3
+                style={{
+                  color: "#ffffff",
+                  fontSize: "20px",
+                  fontWeight: "600",
+                  margin: "0 0 8px 0",
+                }}
+              >
+                No Students Found
+              </h3>
+              <p
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "14px",
+                  margin: "0 0 24px 0",
+                }}
+              >
+                Get started by adding your first student
+              </p>
+              <button
+                onClick={() => navigate("/Admin/class/addstudents/" + classID)}
+                style={{
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "12px 24px",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-2px)"
+                  e.target.style.boxShadow = "0 8px 25px rgba(81, 207, 102, 0.4)"
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)"
+                  e.target.style.boxShadow = "none"
+                }}
+              >
+                ➕ Add Students
+              </button>
+            </div>
           </div>
         ) : (
           <>
-            <h3
+            <div
               style={{
-                color: "white",
-                marginBottom: "20px",
-                fontSize: "18px",
-                fontWeight: "600",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "24px",
+                padding: "20px",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
               }}
             >
-              👥 Students List
-            </h3>
+              <div>
+                <h3
+                  style={{
+                    color: "white",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    margin: "0 0 4px 0",
+                  }}
+                >
+                  👥 Students List
+                </h3>
+                <p
+                  style={{
+                    color: "rgba(255, 255, 255, 0.8)",
+                    fontSize: "14px",
+                    margin: 0,
+                  }}
+                >
+                  {Array.isArray(sclassStudents) ? sclassStudents.length : 0} students found
+                </p>
+              </div>
+              <button
+                onClick={() => navigate("/Admin/class/addstudents/" + classID)}
+                style={{
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "10px 20px",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-1px)"
+                  e.target.style.boxShadow = "0 4px 15px rgba(81, 207, 102, 0.4)"
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)"
+                  e.target.style.boxShadow = "none"
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 5v14M5 12h14"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Add Student
+              </button>
+            </div>
 
             <div
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                backdropFilter: "blur(10px)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: "12px",
-                overflow: "hidden",
+                display: "grid",
+                gap: "16px",
               }}
             >
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "2fr 1fr 2fr",
-                  gap: "1px",
-                  background: "rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Name
-                </div>
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Roll Number
-                </div>
-                <div
-                  style={{
-                    background: "rgba(0, 0, 0, 0.3)",
-                    padding: "16px",
-                    color: "white",
-                    fontWeight: "600",
-                    fontSize: "14px",
-                  }}
-                >
-                  Actions
-                </div>
+              {studentRows &&
+                studentRows.map((row, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      background: "rgba(255, 255, 255, 0.1)",
+                      backdropFilter: "blur(20px)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      borderRadius: "16px",
+                      padding: "24px",
+                      transition: "all 0.3s ease",
+                      cursor: "pointer",
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateY(-4px)"
+                      e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 255, 255, 0.15)"
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)"
+                      e.currentTarget.style.boxShadow = "none"
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: "3px",
+                        background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
+                        borderRadius: "16px 16px 0 0",
+                      }}
+                    ></div>
 
-                {studentRows &&
-                  studentRows.map((row, index) => (
-                    <>
-                      <div
-                        key={`name-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                          color: "#e5e7eb",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {row.name}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                      <div style={{ flex: 1, marginRight: "16px" }}>
+                        <h3
+                          style={{
+                            color: "#ffffff",
+                            fontSize: "18px",
+                            fontWeight: "600",
+                            margin: "0 0 8px 0",
+                            lineHeight: "1.4",
+                          }}
+                        >
+                          {row.name}
+                        </h3>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "8px",
+                          }}
+                        >
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            style={{ opacity: 0.6, color: "white" }}
+                          >
+                            <path
+                              d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <circle
+                              cx="12"
+                              cy="7"
+                              r="4"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span
+                            style={{
+                              color: "rgba(255, 255, 255, 0.6)",
+                              fontSize: "13px",
+                            }}
+                          >
+                            Roll: {row.rollNum}
+                          </span>
+                        </div>
                       </div>
-                      <div
-                        key={`roll-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                          color: "#e5e7eb",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {row.rollNum}
-                      </div>
-                      <div
-                        key={`actions-${index}`}
-                        style={{
-                          background: "rgba(0, 0, 0, 0.2)",
-                          padding: "16px",
-                        }}
-                      >
-                        <StudentsButtonHaver row={row} />
-                      </div>
-                    </>
-                  ))}
-              </div>
+
+                      <StudentsButtonHaver row={row} />
+                    </div>
+                  </div>
+                ))}
             </div>
 
             <div
               style={{
                 position: "fixed",
-                bottom: "20px",
-                right: "20px",
+                bottom: "24px",
+                right: "24px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "12px",
+                zIndex: 1000,
               }}
             >
               <button
                 onClick={() => navigate("/Admin/class/addstudents/" + classID)}
                 style={{
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   border: "none",
-                  borderRadius: "50px",
+                  borderRadius: "50%",
                   width: "56px",
                   height: "56px",
                   color: "white",
                   cursor: "pointer",
                   fontSize: "20px",
-                  boxShadow: "0 4px 20px rgba(102, 126, 234, 0.4)",
+                  boxShadow: "0 4px 20px rgba(81, 207, 102, 0.4)",
                   transition: "all 0.3s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.1)"
-                  e.target.style.boxShadow = "0 8px 30px rgba(102, 126, 234, 0.6)"
+                  e.target.style.boxShadow = "0 8px 30px rgba(81, 207, 102, 0.6)"
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.transform = "scale(1)"
-                  e.target.style.boxShadow = "0 4px 20px rgba(102, 126, 234, 0.4)"
+                  e.target.style.boxShadow = "0 4px 20px rgba(81, 207, 102, 0.4)"
                 }}
                 title="Add New Student"
               >
@@ -578,7 +837,7 @@ const ClassDetails = () => {
                 style={{
                   background: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
                   border: "none",
-                  borderRadius: "50px",
+                  borderRadius: "50%",
                   width: "56px",
                   height: "56px",
                   color: "white",
@@ -586,6 +845,9 @@ const ClassDetails = () => {
                   fontSize: "20px",
                   boxShadow: "0 4px 20px rgba(239, 68, 68, 0.4)",
                   transition: "all 0.3s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = "scale(1.1)"
@@ -617,22 +879,43 @@ const ClassDetails = () => {
       >
         <div
           style={{
-            fontSize: "48px",
-            marginBottom: "16px",
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(20px)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "16px",
+            padding: "40px",
+            maxWidth: "400px",
+            margin: "0 auto",
           }}
         >
-          👨‍🏫
+          <div
+            style={{
+              fontSize: "64px",
+              marginBottom: "16px",
+            }}
+          >
+            👨‍🏫
+          </div>
+          <h3
+            style={{
+              color: "white",
+              marginBottom: "8px",
+              fontSize: "20px",
+              fontWeight: "600",
+            }}
+          >
+            Teachers Section
+          </h3>
+          <p
+            style={{
+              color: "rgba(255, 255, 255, 0.8)",
+              fontSize: "14px",
+              margin: 0,
+            }}
+          >
+            Coming soon...
+          </p>
         </div>
-        <h3
-          style={{
-            color: "white",
-            marginBottom: "8px",
-            fontSize: "18px",
-          }}
-        >
-          Teachers Section
-        </h3>
-        <p>Coming soon...</p>
       </div>
     )
   }
@@ -652,10 +935,10 @@ const ClassDetails = () => {
           <h2
             style={{
               color: "white",
-              fontSize: "28px",
+              fontSize: "32px",
               fontWeight: "700",
               marginBottom: "8px",
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -665,8 +948,9 @@ const ClassDetails = () => {
           </h2>
           <p
             style={{
-              color: "#9ca3af",
+              color: "rgba(255, 255, 255, 0.8)",
               fontSize: "16px",
+              margin: 0,
             }}
           >
             Comprehensive overview of class information
@@ -681,25 +965,39 @@ const ClassDetails = () => {
             marginBottom: "30px",
           }}
         >
-          {/* Class Name Card */}
           <div
             style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "16px",
               padding: "24px",
               transition: "all 0.3s ease",
+              position: "relative",
+              overflow: "hidden",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-4px)"
-              e.currentTarget.style.boxShadow = "0 20px 40px rgba(102, 126, 234, 0.2)"
+              e.currentTarget.style.boxShadow = "0 20px 40px rgba(255, 255, 255, 0.2)"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)"
               e.currentTarget.style.boxShadow = "none"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "3px",
+                background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
+                borderRadius: "16px 16px 0 0",
+              }}
+            ></div>
             <div
               style={{
                 fontSize: "32px",
@@ -730,25 +1028,39 @@ const ClassDetails = () => {
             </p>
           </div>
 
-          {/* Subjects Count Card */}
           <div
             style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "16px",
               padding: "24px",
               transition: "all 0.3s ease",
+              position: "relative",
+              overflow: "hidden",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-4px)"
-              e.currentTarget.style.boxShadow = "0 20px 40px rgba(16, 185, 129, 0.2)"
+              e.currentTarget.style.boxShadow = "0 20px 40px rgba(81, 207, 102, 0.2)"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)"
               e.currentTarget.style.boxShadow = "none"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "3px",
+                background: "linear-gradient(90deg, rgba(81, 207, 102, 0.6), rgba(81, 207, 102, 0.3))",
+                borderRadius: "16px 16px 0 0",
+              }}
+            ></div>
             <div
               style={{
                 fontSize: "32px",
@@ -769,7 +1081,7 @@ const ClassDetails = () => {
             </h3>
             <p
               style={{
-                color: "#10b981",
+                color: "#51cf66",
                 fontSize: "32px",
                 fontWeight: "700",
                 margin: "0",
@@ -779,25 +1091,39 @@ const ClassDetails = () => {
             </p>
           </div>
 
-          {/* Students Count Card */}
           <div
             style={{
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
               borderRadius: "16px",
               padding: "24px",
               transition: "all 0.3s ease",
+              position: "relative",
+              overflow: "hidden",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "translateY(-4px)"
               e.currentTarget.style.boxShadow = "0 20px 40px rgba(139, 92, 246, 0.2)"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "translateY(0)"
               e.currentTarget.style.boxShadow = "none"
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
             }}
           >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "3px",
+                background: "linear-gradient(90deg, rgba(139, 92, 246, 0.6), rgba(139, 92, 246, 0.3))",
+                borderRadius: "16px 16px 0 0",
+              }}
+            ></div>
             <div
               style={{
                 fontSize: "32px",
@@ -829,7 +1155,6 @@ const ClassDetails = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
         <div
           style={{
             display: "flex",
@@ -842,7 +1167,7 @@ const ClassDetails = () => {
             <button
               onClick={() => navigate("/Admin/class/addstudents/" + classID)}
               style={{
-                background: "linear-gradient(135deg, #10b981 0%, #059669 100%)",
+                background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                 border: "none",
                 borderRadius: "12px",
                 padding: "14px 28px",
@@ -851,15 +1176,15 @@ const ClassDetails = () => {
                 fontSize: "16px",
                 fontWeight: "600",
                 transition: "all 0.3s ease",
-                boxShadow: "0 4px 20px rgba(16, 185, 129, 0.3)",
+                boxShadow: "0 4px 20px rgba(81, 207, 102, 0.3)",
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 30px rgba(16, 185, 129, 0.4)"
+                e.target.style.boxShadow = "0 8px 30px rgba(81, 207, 102, 0.4)"
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "0 4px 20px rgba(16, 185, 129, 0.3)"
+                e.target.style.boxShadow = "0 4px 20px rgba(81, 207, 102, 0.3)"
               }}
             >
               👤➕ Add Students
@@ -897,100 +1222,139 @@ const ClassDetails = () => {
     )
   }
 
+  const LoadingSpinner = () => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        flexDirection: "column",
+        gap: "16px",
+      }}
+    >
+      <div
+        style={{
+          background: "rgba(255, 255, 255, 0.1)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          borderRadius: "16px",
+          padding: "32px",
+          textAlign: "center",
+        }}
+      >
+        <div
+          style={{
+            width: "40px",
+            height: "40px",
+            border: "3px solid rgba(255, 255, 255, 0.3)",
+            borderTop: "3px solid white",
+            borderRadius: "50%",
+            animation: "spin 1s linear infinite",
+            margin: "0 auto 16px",
+          }}
+        ></div>
+        <p
+          style={{
+            color: "white",
+            fontSize: "16px",
+            margin: 0,
+          }}
+        >
+          Loading class details...
+        </p>
+      </div>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
+    </div>
+  )
+
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)",
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Floating Background Elements */}
       <div
         style={{
           position: "absolute",
           top: "10%",
-          left: "5%",
-          width: "100px",
-          height: "100px",
-          background: "radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%)",
+          left: "10%",
+          width: "80px",
+          height: "80px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
+          animationDelay: "0s",
         }}
       ></div>
       <div
         style={{
           position: "absolute",
-          top: "60%",
+          top: "20%",
           right: "10%",
-          width: "150px",
-          height: "150px",
-          background: "radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%)",
+          width: "120px",
+          height: "120px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
-          animation: "float 8s ease-in-out infinite reverse",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "2s",
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          left: "15%",
+          width: "60px",
+          height: "60px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "4s",
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: "100px",
+          height: "100px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "1s",
         }}
       ></div>
 
-      <style>
-        {`
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px) rotate(0deg); }
-                        50% { transform: translateY(-20px) rotate(180deg); }
-                    }
-                `}
-      </style>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-20px) rotate(120deg); }
+          66% { transform: translateY(-10px) rotate(240deg); }
+        }
+      `}</style>
 
       {loading ? (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-            color: "white",
-            fontSize: "18px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-            }}
-          >
-            <div
-              style={{
-                width: "20px",
-                height: "20px",
-                border: "2px solid rgba(102, 126, 234, 0.3)",
-                borderTop: "2px solid #667eea",
-                borderRadius: "50%",
-                animation: "spin 1s linear infinite",
-              }}
-            ></div>
-            Loading...
-          </div>
-          <style>
-            {`
-                            @keyframes spin {
-                                0% { transform: rotate(0deg); }
-                                100% { transform: rotate(360deg); }
-                            }
-                        `}
-          </style>
-        </div>
+        <LoadingSpinner />
       ) : (
         <div style={{ width: "100%" }}>
-          {/* Tab Navigation */}
           <div
             style={{
               position: "fixed",
               top: "0",
               left: "0",
               right: "0",
-              background: "rgba(0, 0, 0, 0.8)",
-              backdropFilter: "blur(10px)",
+              background: "rgba(0, 0, 0, 0.3)",
+              backdropFilter: "blur(20px)",
               borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
               zIndex: 1000,
               padding: "0 20px",
@@ -1014,16 +1378,17 @@ const ClassDetails = () => {
                   key={tab.id}
                   onClick={() => setValue(tab.id)}
                   style={{
-                    background: value === tab.id ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" : "transparent",
+                    background: value === tab.id ? "rgba(255, 255, 255, 0.2)" : "transparent",
                     border: "none",
-                    borderBottom: value === tab.id ? "3px solid #667eea" : "3px solid transparent",
+                    borderBottom: value === tab.id ? "3px solid rgba(255, 255, 255, 0.8)" : "3px solid transparent",
                     padding: "16px 24px",
-                    color: value === tab.id ? "white" : "#9ca3af",
+                    color: value === tab.id ? "white" : "rgba(255, 255, 255, 0.7)",
                     cursor: "pointer",
                     fontSize: "14px",
                     fontWeight: value === tab.id ? "600" : "500",
                     transition: "all 0.3s ease",
                     borderRadius: value === tab.id ? "8px 8px 0 0" : "0",
+                    backdropFilter: value === tab.id ? "blur(10px)" : "none",
                   }}
                   onMouseEnter={(e) => {
                     if (value !== tab.id) {
@@ -1033,7 +1398,7 @@ const ClassDetails = () => {
                   }}
                   onMouseLeave={(e) => {
                     if (value !== tab.id) {
-                      e.target.style.color = "#9ca3af"
+                      e.target.style.color = "rgba(255, 255, 255, 0.7)"
                       e.target.style.background = "transparent"
                     }
                   }}
@@ -1052,6 +1417,8 @@ const ClassDetails = () => {
               maxWidth: "1200px",
               margin: "80px auto 0",
               minHeight: "calc(100vh - 80px)",
+              position: "relative",
+              zIndex: 1,
             }}
           >
             {value === "1" && <ClassDetailsSection />}
@@ -1062,7 +1429,6 @@ const ClassDetails = () => {
         </div>
       )}
 
-      {/* Popup */}
       {showPopup && (
         <div
           style={{
@@ -1076,6 +1442,7 @@ const ClassDetails = () => {
             justifyContent: "center",
             alignItems: "center",
             zIndex: 2000,
+            backdropFilter: "blur(10px)",
           }}
         >
           <div

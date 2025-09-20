@@ -41,14 +41,14 @@ const ShowClasses = () => {
         position: "absolute",
         top: "100%",
         right: "0",
-        background: "rgba(20, 20, 20, 0.95)",
+        background: "rgba(255, 255, 255, 0.15)",
         backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
         borderRadius: "12px",
         padding: "8px",
         minWidth: "200px",
         zIndex: 1000,
-        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)",
+        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
       }}
     >
       <div
@@ -69,7 +69,7 @@ const ShowClasses = () => {
           fontWeight: "500",
         }}
         onMouseEnter={(e) => {
-          e.target.style.background = "rgba(103, 126, 234, 0.1)"
+          e.target.style.background = "rgba(255, 255, 255, 0.1)"
           e.target.style.transform = "translateX(4px)"
         }}
         onMouseLeave={(e) => {
@@ -104,7 +104,7 @@ const ShowClasses = () => {
           fontWeight: "500",
         }}
         onMouseEnter={(e) => {
-          e.target.style.background = "rgba(103, 126, 234, 0.1)"
+          e.target.style.background = "rgba(255, 255, 255, 0.1)"
           e.target.style.transform = "translateX(4px)"
         }}
         onMouseLeave={(e) => {
@@ -126,25 +126,39 @@ const ShowClasses = () => {
   const ClassCard = ({ classData }) => (
     <div
       style={{
-        background: "rgba(20, 20, 20, 0.8)",
+        background: "rgba(255, 255, 255, 0.1)",
         backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
         borderRadius: "16px",
         padding: "24px",
         transition: "all 0.3s ease",
         position: "relative",
+        overflow: "hidden",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "translateY(-4px)"
-        e.currentTarget.style.boxShadow = "0 20px 40px rgba(103, 126, 234, 0.2)"
-        e.currentTarget.style.border = "1px solid rgba(103, 126, 234, 0.3)"
+        e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 255, 255, 0.15)"
+        e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)"
         e.currentTarget.style.boxShadow = "none"
-        e.currentTarget.style.border = "1px solid rgba(255, 255, 255, 0.1)"
+        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
       }}
     >
+      {/* Gradient top border */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "3px",
+          background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
+          borderRadius: "16px 16px 0 0",
+        }}
+      />
+
       <div
         style={{
           display: "flex",
@@ -164,7 +178,7 @@ const ShowClasses = () => {
             style={{
               width: "48px",
               height: "48px",
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%)",
               borderRadius: "12px",
               display: "flex",
               alignItems: "center",
@@ -172,6 +186,7 @@ const ShowClasses = () => {
               color: "#ffffff",
               fontSize: "20px",
               fontWeight: "700",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
             }}
           >
             {classData.name.charAt(0).toUpperCase()}
@@ -183,17 +198,13 @@ const ShowClasses = () => {
                 fontSize: "20px",
                 fontWeight: "600",
                 margin: "0 0 4px 0",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
               }}
             >
               {classData.name}
             </h3>
             <p
               style={{
-                color: "rgba(255, 255, 255, 0.6)",
+                color: "rgba(255, 255, 255, 0.8)",
                 fontSize: "14px",
                 margin: "0",
                 fontWeight: "400",
@@ -214,8 +225,8 @@ const ShowClasses = () => {
           <button
             onClick={() => navigate("/Admin/classes/class/" + classData.id)}
             style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              border: "none",
+              background: "rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
               borderRadius: "10px",
               padding: "10px 20px",
               color: "#ffffff",
@@ -229,10 +240,12 @@ const ShowClasses = () => {
             }}
             onMouseEnter={(e) => {
               e.target.style.transform = "translateY(-2px)"
-              e.target.style.boxShadow = "0 8px 25px rgba(103, 126, 234, 0.4)"
+              e.target.style.background = "rgba(255, 255, 255, 0.3)"
+              e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
             }}
             onMouseLeave={(e) => {
               e.target.style.transform = "translateY(0)"
+              e.target.style.background = "rgba(255, 255, 255, 0.2)"
               e.target.style.boxShadow = "none"
             }}
           >
@@ -247,8 +260,8 @@ const ShowClasses = () => {
             <button
               onClick={() => setShowActionMenu(showActionMenu === classData.id ? null : classData.id)}
               style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
+                background: "rgba(255, 255, 255, 0.15)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
                 borderRadius: "10px",
                 padding: "10px 16px",
                 color: "#ffffff",
@@ -261,11 +274,11 @@ const ShowClasses = () => {
                 gap: "8px",
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.15)"
+                e.target.style.background = "rgba(255, 255, 255, 0.25)"
                 e.target.style.transform = "translateY(-2px)"
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.1)"
+                e.target.style.background = "rgba(255, 255, 255, 0.15)"
                 e.target.style.transform = "translateY(0)"
               }}
             >
@@ -283,7 +296,7 @@ const ShowClasses = () => {
           <button
             onClick={() => deleteHandler(classData.id, "Sclass")}
             style={{
-              background: "rgba(239, 68, 68, 0.1)",
+              background: "rgba(239, 68, 68, 0.15)",
               border: "1px solid rgba(239, 68, 68, 0.3)",
               borderRadius: "10px",
               padding: "10px",
@@ -295,11 +308,11 @@ const ShowClasses = () => {
               justifyContent: "center",
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = "rgba(239, 68, 68, 0.2)"
+              e.target.style.background = "rgba(239, 68, 68, 0.25)"
               e.target.style.transform = "translateY(-2px)"
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = "rgba(239, 68, 68, 0.1)"
+              e.target.style.background = "rgba(239, 68, 68, 0.15)"
               e.target.style.transform = "translateY(0)"
             }}
           >
@@ -315,44 +328,94 @@ const ShowClasses = () => {
     </div>
   )
 
+  const LoadingSpinner = () => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "200px",
+        flexDirection: "column",
+        gap: "20px",
+      }}
+    >
+      <div
+        style={{
+          width: "50px",
+          height: "50px",
+          border: "3px solid rgba(255, 255, 255, 0.3)",
+          borderTop: "3px solid white",
+          borderRadius: "50%",
+          animation: "spin 1s linear infinite",
+        }}
+      />
+      <p
+        style={{
+          color: "rgba(255, 255, 255, 0.8)",
+          fontSize: "16px",
+          fontWeight: "500",
+        }}
+      >
+        Loading classes...
+      </p>
+    </div>
+  )
+
   const FloatingElements = () => (
     <>
+      {/* Floating background elements */}
       <div
         style={{
-          position: "fixed",
+          position: "absolute",
           top: "10%",
-          left: "5%",
-          width: "300px",
-          height: "300px",
-          background: "radial-gradient(circle, rgba(103, 126, 234, 0.1) 0%, transparent 70%)",
+          left: "10%",
+          width: "80px",
+          height: "80px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
-          filter: "blur(40px)",
-          zIndex: 0,
           animation: "float 6s ease-in-out infinite",
+          animationDelay: "0s",
         }}
       />
       <div
         style={{
-          position: "fixed",
-          top: "60%",
+          position: "absolute",
+          top: "20%",
           right: "10%",
-          width: "200px",
-          height: "200px",
-          background: "radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%)",
+          width: "120px",
+          height: "120px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
-          filter: "blur(30px)",
-          zIndex: 0,
-          animation: "float 8s ease-in-out infinite reverse",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "2s",
         }}
       />
-      <style>
-        {`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-          }
-        `}
-      </style>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          left: "15%",
+          width: "60px",
+          height: "60px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "4s",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: "100px",
+          height: "100px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "1s",
+        }}
+      />
     </>
   )
 
@@ -360,13 +423,29 @@ const ShowClasses = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         position: "relative",
-        padding: "40px",
+        padding: "24px",
         fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+        overflow: "hidden",
       }}
     >
       <FloatingElements />
+
+      {/* Global styles */}
+      <style>
+        {`
+          @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(-10px) rotate(240deg); }
+          }
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        `}
+      </style>
 
       {showActionMenu && (
         <div
@@ -390,46 +469,42 @@ const ShowClasses = () => {
           zIndex: 1,
         }}
       >
+        {/* Header Section */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginBottom: "40px",
+            marginBottom: "32px",
+            textAlign: "center",
           }}
         >
-          <div>
-            <h1
-              style={{
-                color: "#ffffff",
-                fontSize: "32px",
-                fontWeight: "700",
-                margin: "0 0 8px 0",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Classes Management
-            </h1>
-            <p
-              style={{
-                color: "rgba(255, 255, 255, 0.6)",
-                fontSize: "16px",
-                margin: "0",
-                fontWeight: "400",
-              }}
-            >
-              Manage your school classes and their configurations
-            </p>
-          </div>
+          <h1
+            style={{
+              color: "#ffffff",
+              fontSize: "32px",
+              fontWeight: "700",
+              margin: "0 0 8px 0",
+              background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Classes Management
+          </h1>
+          <p
+            style={{
+              color: "rgba(255, 255, 255, 0.8)",
+              fontSize: "16px",
+              margin: "0 0 24px 0",
+            }}
+          >
+            Manage your school classes and their configurations
+          </p>
 
           <button
             onClick={() => navigate("/Admin/addclass")}
             style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              border: "none",
+              background: "rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
               borderRadius: "12px",
               padding: "14px 24px",
               color: "#ffffff",
@@ -437,18 +512,20 @@ const ShowClasses = () => {
               fontWeight: "600",
               cursor: "pointer",
               transition: "all 0.3s ease",
-              display: "flex",
+              display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              boxShadow: "0 4px 15px rgba(103, 126, 234, 0.3)",
+              backdropFilter: "blur(20px)",
             }}
             onMouseEnter={(e) => {
               e.target.style.transform = "translateY(-3px)"
-              e.target.style.boxShadow = "0 8px 25px rgba(103, 126, 234, 0.4)"
+              e.target.style.background = "rgba(255, 255, 255, 0.3)"
+              e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
             }}
             onMouseLeave={(e) => {
               e.target.style.transform = "translateY(0)"
-              e.target.style.boxShadow = "0 4px 15px rgba(103, 126, 234, 0.3)"
+              e.target.style.background = "rgba(255, 255, 255, 0.2)"
+              e.target.style.boxShadow = "none"
             }}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -459,140 +536,159 @@ const ShowClasses = () => {
           </button>
         </div>
 
+        {/* Content Section */}
         {loading ? (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              minHeight: "400px",
-              flexDirection: "column",
-              gap: "20px",
-            }}
-          >
-            <div
-              style={{
-                width: "50px",
-                height: "50px",
-                border: "3px solid rgba(103, 126, 234, 0.3)",
-                borderTop: "3px solid #667eea",
-                borderRadius: "50%",
-                animation: "spin 1s linear infinite",
-              }}
-            />
-            <p
-              style={{
-                color: "rgba(255, 255, 255, 0.6)",
-                fontSize: "16px",
-                fontWeight: "500",
-              }}
-            >
-              Loading classes...
-            </p>
-            <style>
-              {`
-                @keyframes spin {
-                  0% { transform: rotate(0deg); }
-                  100% { transform: rotate(360deg); }
-                }
-              `}
-            </style>
-          </div>
+          <LoadingSpinner />
         ) : getresponse ? (
           <div
             style={{
-              background: "rgba(20, 20, 20, 0.8)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              borderRadius: "16px",
-              padding: "60px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "400px",
               textAlign: "center",
             }}
           >
             <div
               style={{
-                width: "80px",
-                height: "80px",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                borderRadius: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                margin: "0 auto 24px auto",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
+                padding: "60px",
+                maxWidth: "500px",
               }}
             >
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c3 3 9 3 12 0v-5" />
-              </svg>
+              <div
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  background: "rgba(255, 255, 255, 0.2)",
+                  borderRadius: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 24px auto",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                }}
+              >
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <h2
+                style={{
+                  color: "#ffffff",
+                  fontSize: "24px",
+                  fontWeight: "600",
+                  margin: "0 0 12px 0",
+                }}
+              >
+                No Classes Found
+              </h2>
+              <p
+                style={{
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontSize: "16px",
+                  margin: "0 0 32px 0",
+                  lineHeight: "1.5",
+                }}
+              >
+                Get started by creating your first class to organize students and subjects.
+              </p>
+              <button
+                onClick={() => navigate("/Admin/addclass")}
+                style={{
+                  background: "rgba(255, 255, 255, 0.2)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  borderRadius: "12px",
+                  padding: "14px 28px",
+                  color: "#ffffff",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.transform = "translateY(-2px)"
+                  e.target.style.background = "rgba(255, 255, 255, 0.3)"
+                  e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = "translateY(0)"
+                  e.target.style.background = "rgba(255, 255, 255, 0.2)"
+                  e.target.style.boxShadow = "none"
+                }}
+              >
+                Create First Class
+              </button>
             </div>
-            <h2
-              style={{
-                color: "#ffffff",
-                fontSize: "24px",
-                fontWeight: "600",
-                margin: "0 0 12px 0",
-              }}
-            >
-              No Classes Found
-            </h2>
-            <p
-              style={{
-                color: "rgba(255, 255, 255, 0.6)",
-                fontSize: "16px",
-                margin: "0 0 32px 0",
-                lineHeight: "1.5",
-              }}
-            >
-              Get started by creating your first class to organize students and subjects.
-            </p>
-            <button
-              onClick={() => navigate("/Admin/addclass")}
-              style={{
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                border: "none",
-                borderRadius: "12px",
-                padding: "14px 28px",
-                color: "#ffffff",
-                fontSize: "16px",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 25px rgba(103, 126, 234, 0.4)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
-              }}
-            >
-              Create First Class
-            </button>
           </div>
         ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
-              gap: "24px",
-            }}
-          >
-            {Array.isArray(sclassesList) &&
-              sclassesList.length > 0 &&
-              sclassesList.map((sclass) => (
-                <ClassCard
-                  key={sclass._id}
-                  classData={{
-                    name: sclass.sclassName,
-                    id: sclass._id,
+          <>
+            {/* Classes Grid Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "24px",
+                padding: "20px",
+                background: "rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                borderRadius: "16px",
+              }}
+            >
+              <div>
+                <h2
+                  style={{
+                    color: "#ffffff",
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    margin: "0 0 4px 0",
                   }}
-                />
-              ))}
-          </div>
+                >
+                  All Classes
+                </h2>
+                <p
+                  style={{
+                    color: "rgba(255, 255, 255, 0.8)",
+                    fontSize: "14px",
+                    margin: 0,
+                  }}
+                >
+                  {Array.isArray(sclassesList) ? sclassesList.length : 0} classes found
+                </p>
+              </div>
+            </div>
+
+            {/* Classes Grid */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+                gap: "24px",
+              }}
+            >
+              {Array.isArray(sclassesList) &&
+                sclassesList.length > 0 &&
+                sclassesList.map((sclass) => (
+                  <ClassCard
+                    key={sclass._id}
+                    classData={{
+                      name: sclass.sclassName,
+                      id: sclass._id,
+                    }}
+                  />
+                ))}
+            </div>
+          </>
         )}
 
+        {/* Floating Delete All Button */}
         {Array.isArray(sclassesList) && sclassesList.length > 0 && (
           <button
             onClick={() => deleteHandler(adminID, "Sclasses")}
@@ -633,6 +729,7 @@ const ShowClasses = () => {
         )}
       </div>
 
+      {/* Popup Modal */}
       {showPopup && (
         <div
           style={{
@@ -640,9 +737,9 @@ const ShowClasses = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            background: "rgba(20, 20, 20, 0.95)",
+            background: "rgba(255, 255, 255, 0.15)",
             backdropFilter: "blur(20px)",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
             borderRadius: "16px",
             padding: "24px",
             zIndex: 2000,
@@ -662,8 +759,8 @@ const ShowClasses = () => {
           <button
             onClick={() => setShowPopup(false)}
             style={{
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-              border: "none",
+              background: "rgba(255, 255, 255, 0.2)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
               borderRadius: "8px",
               padding: "10px 20px",
               color: "#ffffff",
