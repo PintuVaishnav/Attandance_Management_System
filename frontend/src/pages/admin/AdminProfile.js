@@ -1,421 +1,279 @@
-"use client"
-
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const AdminProfile = () => {
-  const { currentUser } = useSelector((state) => state.user)
+    const { currentUser } = useSelector((state) => state.user);
 
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        padding: "2rem",
-        position: "relative",
-        overflow: "hidden",
-        borderRadius: "10px",
-      }}
-    >
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "10%",
-          width: "200px",
-          height: "200px",
-          background: "rgba(255, 255, 255, 0.1)",
-          borderRadius: "50%",
-          filter: "blur(40px)",
-          animation: "float 6s ease-in-out infinite",
-        }}
-      ></div>
-      <div
-        style={{
-          position: "absolute",
-          top: "60%",
-          right: "15%",
-          width: "150px",
-          height: "150px",
-          background: "rgba(255, 255, 255, 0.08)",
-          borderRadius: "50%",
-          filter: "blur(30px)",
-          animation: "float 8s ease-in-out infinite reverse",
-        }}
-      ></div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20%",
-          left: "20%",
-          width: "100px",
-          height: "100px",
-          background: "rgba(255, 255, 255, 0.06)",
-          borderRadius: "50%",
-          filter: "blur(20px)",
-          animation: "float 10s ease-in-out infinite",
-        }}
-      ></div>
-
-      <style>
-        {`
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px) rotate(0deg); }
-                        50% { transform: translateY(-20px) rotate(180deg); }
-                    }
-                    @keyframes slideUp {
-                        from { opacity: 0; transform: translateY(30px); }
-                        to { opacity: 1; transform: translateY(0); }
-                    }
-                    @keyframes shimmer {
-                        0% { background-position: -200px 0; }
-                        100% { background-position: 200px 0; }
-                    }
-                `}
-      </style>
-
-      <div
-        style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <div
-          style={{
-            textAlign: "center",
-            marginBottom: "3rem",
-            animation: "slideUp 0.8s ease-out",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "2.5rem",
-              fontWeight: "700",
-              background: "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              marginBottom: "0.5rem",
-              textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            }}
-          >
-            Admin Profile
-          </h1>
-          <p
-            style={{
-              color: "rgba(255, 255, 255, 0.8)",
-              fontSize: "1.1rem",
-              fontWeight: "400",
-            }}
-          >
-            Manage your administrative account
-          </p>
-        </div>
-
-        <div
-          style={{
-            background: "rgba(255, 255, 255, 0.95)",
-            backdropFilter: "blur(20px)",
-            borderRadius: "24px",
-            padding: "3rem",
-            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            animation: "slideUp 0.8s ease-out 0.2s both",
+    // Inline Styles
+    const styles = {
+        container: {
+            minHeight: "100vh",
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
             position: "relative",
             overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: "-200px",
-              width: "200px",
-              height: "100%",
-              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)",
-              animation: "shimmer 3s infinite",
-            }}
-          ></div>
+            padding: "24px"
+        },
+        floatingElement: {
+            position: "absolute",
+            borderRadius: "50%",
+            background: "rgba(255, 255, 255, 0.1)",
+            animation: "float 6s ease-in-out infinite"
+        },
+        floatingElement1: {
+            width: "80px",
+            height: "80px",
+            top: "10%",
+            left: "10%",
+            animationDelay: "0s"
+        },
+        floatingElement2: {
+            width: "120px",
+            height: "120px",
+            top: "20%",
+            right: "10%",
+            animationDelay: "2s"
+        },
+        floatingElement3: {
+            width: "60px",
+            height: "60px",
+            bottom: "20%",
+            left: "15%",
+            animationDelay: "4s"
+        },
+        floatingElement4: {
+            width: "100px",
+            height: "100px",
+            bottom: "10%",
+            right: "20%",
+            animationDelay: "1s"
+        },
+        mainContent: {
+            position: "relative",
+            zIndex: 10,
+            maxWidth: "800px",
+            margin: "0 auto"
+        },
+        heading: {
+            color: "white",
+            fontSize: "32px",
+            fontWeight: "600",
+            marginBottom: "32px",
+            textAlign: "center"
+        },
+        profileCard: {
+            background: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(20px)",
+            borderRadius: "24px",
+            padding: "40px",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)"
+        },
+        avatarSection: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginBottom: "32px"
+        },
+        avatar: {
+            width: "120px",
+            height: "120px",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "48px",
+            fontWeight: "600",
+            color: "white",
+            marginBottom: "16px",
+            boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)"
+        },
+        userName: {
+            color: "white",
+            fontSize: "24px",
+            fontWeight: "600",
+            marginBottom: "8px"
+        },
+        userRole: {
+            color: "rgba(255, 255, 255, 0.8)",
+            fontSize: "16px",
+            fontWeight: "500",
+            background: "rgba(255, 255, 255, 0.1)",
+            padding: "8px 16px",
+            borderRadius: "20px",
+            border: "1px solid rgba(255, 255, 255, 0.2)"
+        },
+        infoGrid: {
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "24px",
+            marginBottom: "32px"
+        },
+        infoCard: {
+            background: "rgba(255, 255, 255, 0.05)",
+            borderRadius: "16px",
+            padding: "24px",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
+            transition: "all 0.3s ease"
+        },
+        infoHeader: {
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "12px"
+        },
+        infoIcon: {
+            width: "40px",
+            height: "40px",
+            borderRadius: "10px",
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginRight: "16px",
+            fontSize: "20px"
+        },
+        infoTitle: {
+            color: "white",
+            fontSize: "18px",
+            fontWeight: "600",
+            margin: 0
+        },
+        infoValue: {
+            color: "rgba(255, 255, 255, 0.9)",
+            fontSize: "16px",
+            fontWeight: "500",
+            margin: 0
+        },
+        buttonGroup: {
+            display: "flex",
+            justifyContent: "center",
+            gap: "16px",
+            flexWrap: "wrap"
+        },
+        primaryButton: {
+            background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+            border: "none",
+            borderRadius: "12px",
+            padding: "12px 24px",
+            color: "white",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            boxShadow: "0 4px 16px rgba(81, 207, 102, 0.3)"
+        },
+        secondaryButton: {
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            borderRadius: "12px",
+            padding: "12px 24px",
+            color: "white",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            backdropFilter: "blur(10px)"
+        }
+    };
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              marginBottom: "2.5rem",
-            }}
-          >
-            <div
-              style={{
-                width: "120px",
-                height: "120px",
-                borderRadius: "50%",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: "1rem",
-                boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: "2.5rem",
-                  fontWeight: "700",
-                  color: "white",
-                  textShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                }}
-              >
-                {currentUser?.name?.charAt(0)?.toUpperCase() || "A"}
-              </span>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "-50%",
-                  left: "-50%",
-                  width: "200%",
-                  height: "200%",
-                  background: "linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)",
-                  animation: "shimmer 4s infinite",
-                }}
-              ></div>
-            </div>
-            <h2
-              style={{
-                fontSize: "1.8rem",
-                fontWeight: "600",
-                color: "#1f2937",
-                marginBottom: "0.5rem",
-                textAlign: "center",
-              }}
-            >
-              {currentUser?.name || "Admin User"}
-            </h2>
-            <span
-              style={{
-                display: "inline-block",
-                padding: "0.5rem 1rem",
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                color: "white",
-                borderRadius: "20px",
-                fontSize: "0.9rem",
-                fontWeight: "500",
-                boxShadow: "0 4px 15px rgba(102, 126, 234, 0.3)",
-              }}
-            >
-              Administrator
-            </span>
-          </div>
+    const getInitials = (name) => {
+        return name ? name.split(' ').map(n => n[0]).join('').toUpperCase() : 'A';
+    };
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "1.5rem",
-              marginBottom: "2rem",
-            }}
-          >
-            {/* Email Card */}
-            <div
-              style={{
-                background: "linear-gradient(45deg, #f8fafc, #e2e8f0)",
-                padding: "1.5rem",
-                borderRadius: "16px",
-                border: "1px solid rgba(102, 126, 234, 0.1)",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 10px 25px rgba(102, 126, 234, 0.15)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginRight: "1rem",
-                    boxShadow: "0 4px 15px rgba(102, 126, 234, 0.3)",
-                  }}
-                >
-                  <span style={{ color: "white", fontSize: "1.2rem" }}>✉</span>
+    return (
+        <>
+            <style>
+                {`
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0px) rotate(0deg); }
+                        33% { transform: translateY(-20px) rotate(120deg); }
+                        66% { transform: translateY(-10px) rotate(240deg); }
+                    }
+                    .info-card:hover {
+                        background: rgba(255, 255, 255, 0.1) !important;
+                        transform: translateY(-2px);
+                    }
+                    .primary-button:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 6px 20px rgba(81, 207, 102, 0.4) !important;
+                    }
+                    .secondary-button:hover {
+                        background: rgba(255, 255, 255, 0.2) !important;
+                        transform: translateY(-2px);
+                    }
+                    @media (max-width: 768px) {
+                        .info-grid {
+                            grid-template-columns: 1fr !important;
+                        }
+                        .button-group {
+                            flex-direction: column !important;
+                        }
+                    }
+                `}
+            </style>
+            <div style={styles.container}>
+                {/* Floating Elements */}
+                <div style={{...styles.floatingElement, ...styles.floatingElement1}}></div>
+                <div style={{...styles.floatingElement, ...styles.floatingElement2}}></div>
+                <div style={{...styles.floatingElement, ...styles.floatingElement3}}></div>
+                <div style={{...styles.floatingElement, ...styles.floatingElement4}}></div>
+
+                <div style={styles.mainContent}>
+                    <h1 style={styles.heading}>Admin Profile</h1>
+                    
+                    <div style={styles.profileCard}>
+                        {/* Avatar Section */}
+                        <div style={styles.avatarSection}>
+                            <div style={styles.avatar}>
+                                {getInitials(currentUser?.name)}
+                            </div>
+                            <div style={styles.userName}>{currentUser?.name || "Admin User"}</div>
+                            <div style={styles.userRole}>Administrator</div>
+                        </div>
+
+                        {/* Information Grid */}
+                        <div className="info-grid" style={styles.infoGrid}>
+                            <div style={styles.infoCard} className="info-card">
+                                <div style={styles.infoHeader}>
+                                    <div style={styles.infoIcon}>✉️</div>
+                                    <h3 style={styles.infoTitle}>Email Address</h3>
+                                </div>
+                                <p style={styles.infoValue}>
+                                    {currentUser?.email || "admin@school.edu"}
+                                </p>
+                            </div>
+
+                            <div style={styles.infoCard} className="info-card">
+                                <div style={styles.infoHeader}>
+                                    <div style={styles.infoIcon}>🏫</div>
+                                    <h3 style={styles.infoTitle}>Institution</h3>
+                                </div>
+                                <p style={styles.infoValue}>
+                                    {currentUser?.schoolName || "Educational Institution"}
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="button-group" style={styles.buttonGroup}>
+                            <button
+                                style={styles.primaryButton}
+                                className="primary-button"
+                            >
+                                Edit Profile
+                            </button>
+                            <button
+                                style={styles.secondaryButton}
+                                className="secondary-button"
+                            >
+                                Settings
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <h3
-                  style={{
-                    fontSize: "1.1rem",
-                    fontWeight: "600",
-                    color: "#374151",
-                    margin: 0,
-                  }}
-                >
-                  Email Address
-                </h3>
-              </div>
-              <p
-                style={{
-                  fontSize: "1rem",
-                  color: "#64748b",
-                  margin: 0,
-                  fontWeight: "500",
-                }}
-              >
-                {currentUser?.email || "admin@school.edu"}
-              </p>
             </div>
+        </>
+    );
+};
 
-            {/* School Card */}
-            <div
-              style={{
-                background: "linear-gradient(45deg, #f8fafc, #e2e8f0)",
-                padding: "1.5rem",
-                borderRadius: "16px",
-                border: "1px solid rgba(102, 126, 234, 0.1)",
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 10px 25px rgba(102, 126, 234, 0.15)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginRight: "1rem",
-                    boxShadow: "0 4px 15px rgba(102, 126, 234, 0.3)",
-                  }}
-                >
-                  <span style={{ color: "white", fontSize: "1.2rem" }}>🏫</span>
-                </div>
-                <h3
-                  style={{
-                    fontSize: "1.1rem",
-                    fontWeight: "600",
-                    color: "#374151",
-                    margin: 0,
-                  }}
-                >
-                  Institution
-                </h3>
-              </div>
-              <p
-                style={{
-                  fontSize: "1rem",
-                  color: "#64748b",
-                  margin: 0,
-                  fontWeight: "500",
-                }}
-              >
-                {currentUser?.schoolName || "Educational Institution"}
-              </p>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "1rem",
-              marginTop: "2rem",
-            }}
-          >
-            <button
-              style={{
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                color: "white",
-                border: "none",
-                padding: "0.75rem 2rem",
-                borderRadius: "12px",
-                fontSize: "1rem",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                boxShadow: "0 4px 15px rgba(102, 126, 234, 0.3)",
-                position: "relative",
-                overflow: "hidden",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 25px rgba(102, 126, 234, 0.4)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "0 4px 15px rgba(102, 126, 234, 0.3)"
-              }}
-            >
-              Edit Profile
-            </button>
-            <button
-              style={{
-                background: "rgba(255, 255, 255, 0.8)",
-                color: "#64748b",
-                border: "1px solid rgba(102, 126, 234, 0.2)",
-                padding: "0.75rem 2rem",
-                borderRadius: "12px",
-                fontSize: "1rem",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                backdropFilter: "blur(10px)",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 1)"
-                e.target.style.transform = "translateY(-2px)"
-                e.target.style.boxShadow = "0 8px 25px rgba(0, 0, 0, 0.1)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.8)"
-                e.target.style.transform = "translateY(0)"
-                e.target.style.boxShadow = "none"
-              }}
-            >
-              Settings
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default AdminProfile
+export default AdminProfile;

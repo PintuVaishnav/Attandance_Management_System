@@ -1,85 +1,125 @@
-import * as React from 'react';
-import { Divider, ListItemButton, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-import HomeIcon from "@mui/icons-material/Home";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
-import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
-import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
-import ReportIcon from '@mui/icons-material/Report';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 
 const SideBar = () => {
     const location = useLocation();
+
+    // Inline Styles
+    const styles = {
+        sidebarContainer: {
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '16px 0'
+        },
+        navSection: {
+            marginBottom: '24px'
+        },
+        navItem: {
+            display: 'flex',
+            alignItems: 'center',
+            padding: '12px 20px',
+            margin: '4px 12px',
+            borderRadius: '12px',
+            textDecoration: 'none',
+            color: 'rgba(255, 255, 255, 0.8)',
+            fontSize: '16px',
+            fontWeight: '500',
+            transition: 'all 0.3s ease',
+            border: '1px solid transparent'
+        },
+        navItemActive: {
+            background: 'rgba(255, 255, 255, 0.15)',
+            color: 'white',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 4px 16px rgba(255, 255, 255, 0.1)'
+        },
+        navIcon: {
+            fontSize: '20px',
+            marginRight: '12px',
+            minWidth: '20px'
+        },
+        divider: {
+            height: '1px',
+            background: 'rgba(255, 255, 255, 0.1)',
+            margin: '16px 20px',
+            borderRadius: '1px'
+        }
+    };
+
+    const isActive = (path) => {
+        if (path === '/' || path === '/Admin/dashboard') {
+            return location.pathname === '/' || location.pathname === '/Admin/dashboard';
+        }
+        return location.pathname.startsWith(path);
+    };
+
+    const NavItem = ({ to, icon, children, exact = false }) => {
+        const active = exact ? location.pathname === to : isActive(to);
+        
+        return (
+            <Link
+                to={to}
+                style={{
+                    ...styles.navItem,
+                    ...(active ? styles.navItemActive : {})
+                }}
+                className="nav-item"
+            >
+                <span style={styles.navIcon}>{icon}</span>
+                {children}
+            </Link>
+        );
+    };
+
     return (
         <>
-            <React.Fragment>
-                <ListItemButton component={Link} to="/">
-                    <ListItemIcon>
-                        <HomeIcon color={location.pathname === ("/" || "/Admin/dashboard") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Home" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/classes">
-                    <ListItemIcon>
-                        <ClassOutlinedIcon color={location.pathname.startsWith('/Admin/classes') ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Classes" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/subjects">
-                    <ListItemIcon>
-                        <AssignmentIcon color={location.pathname.startsWith("/Admin/subjects") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Subjects" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/teachers">
-                    <ListItemIcon>
-                        <SupervisorAccountOutlinedIcon color={location.pathname.startsWith("/Admin/teachers") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Teachers" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/students">
-                    <ListItemIcon>
-                        <PersonOutlineIcon color={location.pathname.startsWith("/Admin/students") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Students" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/notices">
-                    <ListItemIcon>
-                        <AnnouncementOutlinedIcon color={location.pathname.startsWith("/Admin/notices") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Notices" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/Admin/complains">
-                    <ListItemIcon>
-                        <ReportIcon color={location.pathname.startsWith("/Admin/complains") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Complains" />
-                </ListItemButton>
-            </React.Fragment>
-            <Divider sx={{ my: 1 }} />
-            <React.Fragment>
-                <ListSubheader component="div" inset>
-                    User
-                </ListSubheader>
-                <ListItemButton component={Link} to="/Admin/profile">
-                    <ListItemIcon>
-                        <AccountCircleOutlinedIcon color={location.pathname.startsWith("/Admin/profile") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Profile" />
-                </ListItemButton>
-                <ListItemButton component={Link} to="/logout">
-                    <ListItemIcon>
-                        <ExitToAppIcon color={location.pathname.startsWith("/logout") ? 'primary' : 'inherit'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Logout" />
-                </ListItemButton>
-            </React.Fragment>
-        </>
-    )
-}
+            <style>
+                {`
+                    .nav-item:hover {
+                        background: rgba(255, 255, 255, 0.1) !important;
+                        color: white !important;
+                    }
+                `}
+            </style>
+            <div style={styles.sidebarContainer}>
+                <div style={styles.navSection}>
+                    <NavItem to="/" icon="🏠">
+                        Home
+                    </NavItem>
+                    <NavItem to="/Admin/classes" icon="🎓">
+                        Classes
+                    </NavItem>
+                    <NavItem to="/Admin/subjects" icon="📚">
+                        Subjects
+                    </NavItem>
+                    <NavItem to="/Admin/teachers" icon="👨‍🏫">
+                        Teachers
+                    </NavItem>
+                    <NavItem to="/Admin/students" icon="👨‍🎓">
+                        Students
+                    </NavItem>
+                    <NavItem to="/Admin/notices" icon="📢">
+                        Notices
+                    </NavItem>
+                    <NavItem to="/Admin/complains" icon="⚠️">
+                        Complains
+                    </NavItem>
+                </div>
 
-export default SideBar
+                <div style={styles.divider}></div>
+
+                <div style={styles.navSection}>
+                    <NavItem to="/Admin/profile" icon="👤">
+                        Profile
+                    </NavItem>
+                    <NavItem to="/logout" icon="🚪">
+                        Logout
+                    </NavItem>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default SideBar;
