@@ -224,7 +224,7 @@ const StudentDashboard = () => {
                 {/* Sidebar */}
                 <nav style={styles.sidebar}>
                     <div style={styles.sidebarHeader}>
-                        <h2 style={styles.sidebarTitle}>Navigation</h2>
+                        <h2 style={styles.sidebarTitle}></h2>
                         <button 
                             style={styles.closeButton}
                             onClick={toggleDrawer}
