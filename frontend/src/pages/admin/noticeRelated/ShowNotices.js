@@ -53,8 +53,9 @@ const ShowNotices = () => {
         style={{
           width: "40px",
           height: "40px",
-          border: "3px solid rgba(59, 130, 246, 0.3)",
-          borderTop: "3px solid #3b82f6",
+          // <CHANGE> Updated spinner colors to match white theme
+          border: "3px solid rgba(255, 255, 255, 0.3)",
+          borderTop: "3px solid white",
           borderRadius: "50%",
           animation: "spin 1s linear infinite",
         }}
@@ -71,11 +72,12 @@ const ShowNotices = () => {
   const NoticeCard = ({ notice, onDelete }) => (
     <div
       style={{
-        background: "rgba(255, 255, 255, 0.05)",
-        backdropFilter: "blur(10px)",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
-        borderRadius: "12px",
-        padding: "20px",
+        // <CHANGE> Updated card background for consistency with glassmorphic theme
+        background: "rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(20px)",
+        border: "1px solid rgba(255, 255, 255, 0.2)",
+        borderRadius: "16px",
+        padding: "24px",
         marginBottom: "16px",
         transition: "all 0.3s ease",
         cursor: "pointer",
@@ -83,17 +85,17 @@ const ShowNotices = () => {
         overflow: "hidden",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-2px)"
-        e.currentTarget.style.boxShadow = "0 8px 32px rgba(59, 130, 246, 0.2)"
-        e.currentTarget.style.borderColor = "rgba(59, 130, 246, 0.3)"
+        e.currentTarget.style.transform = "translateY(-4px)"
+        e.currentTarget.style.boxShadow = "0 16px 48px rgba(255, 255, 255, 0.15)"
+        e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)"
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)"
         e.currentTarget.style.boxShadow = "none"
-        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)"
+        e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
       }}
     >
-      {/* Gradient overlay */}
+      {/* <CHANGE> Updated gradient overlay to match purple theme */}
       <div
         style={{
           position: "absolute",
@@ -101,8 +103,8 @@ const ShowNotices = () => {
           left: 0,
           right: 0,
           height: "3px",
-          background: "linear-gradient(90deg, #3b82f6, #8b5cf6)",
-          borderRadius: "12px 12px 0 0",
+          background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
+          borderRadius: "16px 16px 0 0",
         }}
       ></div>
 
@@ -121,7 +123,7 @@ const ShowNotices = () => {
           </h3>
           <p
             style={{
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "rgba(255, 255, 255, 0.8)",
               fontSize: "14px",
               margin: "0 0 12px 0",
               lineHeight: "1.5",
@@ -136,7 +138,7 @@ const ShowNotices = () => {
               gap: "8px",
             }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.6 }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.6, color: "white" }}>
               <path
                 d="M8 2v3m8-3v3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 stroke="currentColor"
@@ -196,7 +198,7 @@ const ShowNotices = () => {
     </div>
   )
 
-  const FloatingActionButton = ({ onClick, icon, label, color = "#3b82f6" }) => (
+  const FloatingActionButton = ({ onClick, icon, label, color = "#ef4444" }) => (
     <button
       onClick={onClick}
       style={{
@@ -210,7 +212,7 @@ const ShowNotices = () => {
         height: "56px",
         color: "white",
         cursor: "pointer",
-        boxShadow: "0 4px 20px rgba(59, 130, 246, 0.3)",
+        boxShadow: "0 4px 20px rgba(239, 68, 68, 0.3)",
         transition: "all 0.3s ease",
         display: "flex",
         alignItems: "center",
@@ -219,11 +221,11 @@ const ShowNotices = () => {
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.transform = "scale(1.1)"
-        e.currentTarget.style.boxShadow = "0 6px 25px rgba(59, 130, 246, 0.4)"
+        e.currentTarget.style.boxShadow = "0 6px 25px rgba(239, 68, 68, 0.4)"
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "scale(1)"
-        e.currentTarget.style.boxShadow = "0 4px 20px rgba(59, 130, 246, 0.3)"
+        e.currentTarget.style.boxShadow = "0 4px 20px rgba(239, 68, 68, 0.3)"
       }}
       title={label}
     >
@@ -235,41 +237,72 @@ const ShowNotices = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)",
+        // <CHANGE> Updated background to match purple gradient from previous components
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         padding: "24px",
         position: "relative",
         overflow: "hidden",
       }}
     >
+      {/* <CHANGE> Updated floating elements to match previous components' style */}
       <div
         style={{
           position: "absolute",
           top: "10%",
           left: "10%",
-          width: "300px",
-          height: "300px",
-          background: "radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)",
+          width: "80px",
+          height: "80px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
+          animationDelay: "0s"
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          top: "20%",
+          right: "10%",
+          width: "120px",
+          height: "120px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "2s"
         }}
       ></div>
       <div
         style={{
           position: "absolute",
           bottom: "20%",
-          right: "15%",
-          width: "200px",
-          height: "200px",
-          background: "radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)",
+          left: "15%",
+          width: "60px",
+          height: "60px",
+          background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
-          animation: "float 8s ease-in-out infinite reverse",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "4s"
+        }}
+      ></div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "10%",
+          right: "20%",
+          width: "100px",
+          height: "100px",
+          background: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "50%",
+          animation: "float 6s ease-in-out infinite",
+          animationDelay: "1s"
         }}
       ></div>
 
       <style>{`
                 @keyframes float {
                     0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(180deg); }
+                    33% { transform: translateY(-20px) rotate(120deg); }
+                    66% { transform: translateY(-10px) rotate(240deg); }
                 }
             `}</style>
 
@@ -293,7 +326,7 @@ const ShowNotices = () => {
               fontSize: "32px",
               fontWeight: "700",
               margin: "0 0 8px 0",
-              background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+              background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -303,7 +336,7 @@ const ShowNotices = () => {
           </h1>
           <p
             style={{
-              color: "rgba(255, 255, 255, 0.6)",
+              color: "rgba(255, 255, 255, 0.8)",
               fontSize: "16px",
               margin: 0,
             }}
@@ -329,9 +362,10 @@ const ShowNotices = () => {
               >
                 <div
                   style={{
-                    background: "rgba(255, 255, 255, 0.05)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    // <CHANGE> Updated empty state background for consistency
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                     borderRadius: "16px",
                     padding: "40px",
                     maxWidth: "400px",
@@ -342,7 +376,7 @@ const ShowNotices = () => {
                     height="64"
                     viewBox="0 0 24 24"
                     fill="none"
-                    style={{ margin: "0 auto 16px", opacity: 0.6 }}
+                    style={{ margin: "0 auto 16px", opacity: 0.6, color: "white" }}
                   >
                     <path
                       d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
@@ -398,7 +432,7 @@ const ShowNotices = () => {
                   </h3>
                   <p
                     style={{
-                      color: "rgba(255, 255, 255, 0.6)",
+                      color: "rgba(255, 255, 255, 0.8)",
                       fontSize: "14px",
                       margin: "0 0 24px 0",
                     }}
@@ -408,7 +442,7 @@ const ShowNotices = () => {
                   <button
                     onClick={() => navigate("/Admin/addnotice")}
                     style={{
-                      background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+                      background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                       border: "none",
                       borderRadius: "8px",
                       padding: "12px 24px",
@@ -420,7 +454,7 @@ const ShowNotices = () => {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-2px)"
-                      e.currentTarget.style.boxShadow = "0 8px 25px rgba(59, 130, 246, 0.3)"
+                      e.currentTarget.style.boxShadow = "0 8px 25px rgba(81, 207, 102, 0.4)"
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)"
@@ -440,10 +474,11 @@ const ShowNotices = () => {
                     alignItems: "center",
                     marginBottom: "24px",
                     padding: "20px",
-                    background: "rgba(255, 255, 255, 0.05)",
-                    backdropFilter: "blur(10px)",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                    borderRadius: "12px",
+                    // <CHANGE> Updated header background for consistency
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(20px)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    borderRadius: "16px",
                   }}
                 >
                   <div>
@@ -459,7 +494,7 @@ const ShowNotices = () => {
                     </h2>
                     <p
                       style={{
-                        color: "rgba(255, 255, 255, 0.6)",
+                        color: "rgba(255, 255, 255, 0.8)",
                         fontSize: "14px",
                         margin: 0,
                       }}
@@ -470,7 +505,7 @@ const ShowNotices = () => {
                   <button
                     onClick={() => navigate("/Admin/addnotice")}
                     style={{
-                      background: "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+                      background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                       border: "none",
                       borderRadius: "8px",
                       padding: "10px 20px",
@@ -485,7 +520,7 @@ const ShowNotices = () => {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-1px)"
-                      e.currentTarget.style.boxShadow = "0 4px 15px rgba(59, 130, 246, 0.3)"
+                      e.currentTarget.style.boxShadow = "0 4px 15px rgba(81, 207, 102, 0.4)"
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)"

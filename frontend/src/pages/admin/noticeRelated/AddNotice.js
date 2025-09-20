@@ -76,30 +76,57 @@ const AddNotice = () => {
           borderRadius: "10px",
         }}
       >
+        {/* <CHANGE> Updated floating elements to match previous components' style */}
         <div
           style={{
             position: "absolute",
             top: "10%",
             left: "10%",
-            width: "200px",
-            height: "200px",
+            width: "80px",
+            height: "80px",
             background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            filter: "blur(40px)",
             animation: "float 6s ease-in-out infinite",
+            animationDelay: "0s"
           }}
         ></div>
         <div
           style={{
             position: "absolute",
-            top: "60%",
-            right: "15%",
-            width: "150px",
-            height: "150px",
-            background: "rgba(255, 255, 255, 0.08)",
+            top: "20%",
+            right: "10%",
+            width: "120px",
+            height: "120px",
+            background: "rgba(255, 255, 255, 0.1)",
             borderRadius: "50%",
-            filter: "blur(30px)",
-            animation: "float 8s ease-in-out infinite reverse",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "2s"
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20%",
+            left: "15%",
+            width: "60px",
+            height: "60px",
+            background: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "50%",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "4s"
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10%",
+            right: "20%",
+            width: "100px",
+            height: "100px",
+            background: "rgba(255, 255, 255, 0.1)",
+            borderRadius: "50%",
+            animation: "float 6s ease-in-out infinite",
+            animationDelay: "1s"
           }}
         ></div>
 
@@ -112,11 +139,12 @@ const AddNotice = () => {
         >
           <div
             style={{
-              background: "rgba(255, 255, 255, 0.95)",
+              // <CHANGE> Changed from white background to transparent glassmorphic background
+              background: "rgba(255, 255, 255, 0.1)",
               backdropFilter: "blur(20px)",
               borderRadius: "24px",
               padding: "3rem",
-              boxShadow: "0 25px 50px rgba(0, 0, 0, 0.15)",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
             }}
           >
@@ -130,13 +158,13 @@ const AddNotice = () => {
                 style={{
                   width: "60px",
                   height: "60px",
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   borderRadius: "16px",
                   margin: "0 auto 1.5rem",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  boxShadow: "0 10px 25px rgba(102, 126, 234, 0.3)",
+                  boxShadow: "0 8px 32px rgba(81, 207, 102, 0.3)",
                 }}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
@@ -151,9 +179,10 @@ const AddNotice = () => {
                 style={{
                   fontSize: "2rem",
                   fontWeight: "700",
-                  color: "#1a1a1a",
+                  // <CHANGE> Changed to white color for glassmorphic background
+                  color: "white",
                   margin: "0 0 0.5rem 0",
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #ffffff 0%, #e5e7eb 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -163,7 +192,8 @@ const AddNotice = () => {
               </h1>
               <p
                 style={{
-                  color: "#666",
+                  // <CHANGE> Changed to white with transparency for glassmorphic background
+                  color: "rgba(255, 255, 255, 0.8)",
                   fontSize: "1rem",
                   margin: 0,
                 }}
@@ -179,7 +209,8 @@ const AddNotice = () => {
                     display: "block",
                     fontSize: "0.875rem",
                     fontWeight: "600",
-                    color: "#374151",
+                    // <CHANGE> Changed to white color for glassmorphic background
+                    color: "white",
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -194,22 +225,25 @@ const AddNotice = () => {
                   style={{
                     width: "100%",
                     padding: "0.875rem 1rem",
-                    border: "2px solid #e5e7eb",
+                    // <CHANGE> Updated input styling for glassmorphic theme
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                     borderRadius: "12px",
                     fontSize: "1rem",
                     transition: "all 0.2s ease",
                     outline: "none",
-                    background: "#fafafa",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    color: "white",
                     boxSizing: "border-box",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#667eea"
-                    e.target.style.background = "#ffffff"
-                    e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.15)"
+                    e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb"
-                    e.target.style.background = "#fafafa"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.1)"
                     e.target.style.boxShadow = "none"
                   }}
                 />
@@ -221,7 +255,8 @@ const AddNotice = () => {
                     display: "block",
                     fontSize: "0.875rem",
                     fontWeight: "600",
-                    color: "#374151",
+                    // <CHANGE> Changed to white color for glassmorphic background
+                    color: "white",
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -236,25 +271,28 @@ const AddNotice = () => {
                   style={{
                     width: "100%",
                     padding: "0.875rem 1rem",
-                    border: "2px solid #e5e7eb",
+                    // <CHANGE> Updated textarea styling for glassmorphic theme
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                     borderRadius: "12px",
                     fontSize: "1rem",
                     transition: "all 0.2s ease",
                     outline: "none",
-                    background: "#fafafa",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    color: "white",
                     resize: "vertical",
                     minHeight: "100px",
                     fontFamily: "inherit",
                     boxSizing: "border-box",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#667eea"
-                    e.target.style.background = "#ffffff"
-                    e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.15)"
+                    e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb"
-                    e.target.style.background = "#fafafa"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.1)"
                     e.target.style.boxShadow = "none"
                   }}
                 />
@@ -266,7 +304,8 @@ const AddNotice = () => {
                     display: "block",
                     fontSize: "0.875rem",
                     fontWeight: "600",
-                    color: "#374151",
+                    // <CHANGE> Changed to white color for glassmorphic background
+                    color: "white",
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -280,22 +319,25 @@ const AddNotice = () => {
                   style={{
                     width: "100%",
                     padding: "0.875rem 1rem",
-                    border: "2px solid #e5e7eb",
+                    // <CHANGE> Updated date input styling for glassmorphic theme
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
                     borderRadius: "12px",
                     fontSize: "1rem",
                     transition: "all 0.2s ease",
                     outline: "none",
-                    background: "#fafafa",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(10px)",
+                    color: "white",
                     boxSizing: "border-box",
                   }}
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#667eea"
-                    e.target.style.background = "#ffffff"
-                    e.target.style.boxShadow = "0 0 0 3px rgba(102, 126, 234, 0.1)"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.4)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.15)"
+                    e.target.style.boxShadow = "0 0 0 3px rgba(255, 255, 255, 0.1)"
                   }}
                   onBlur={(e) => {
-                    e.target.style.borderColor = "#e5e7eb"
-                    e.target.style.background = "#fafafa"
+                    e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
+                    e.target.style.background = "rgba(255, 255, 255, 0.1)"
                     e.target.style.boxShadow = "none"
                   }}
                 />
@@ -307,7 +349,7 @@ const AddNotice = () => {
                 style={{
                   width: "100%",
                   padding: "1rem",
-                  background: loader ? "#9ca3af" : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: loader ? "rgba(255, 255, 255, 0.2)" : "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
                   color: "white",
                   border: "none",
                   borderRadius: "12px",
@@ -320,19 +362,20 @@ const AddNotice = () => {
                   justifyContent: "center",
                   gap: "0.5rem",
                   marginTop: "1rem",
-                  boxShadow: loader ? "none" : "0 10px 25px rgba(102, 126, 234, 0.3)",
+                  boxShadow: loader ? "none" : "0 4px 16px rgba(81, 207, 102, 0.3)",
                   transform: loader ? "none" : "translateY(0)",
+                  opacity: loader ? 0.7 : 1,
                 }}
                 onMouseEnter={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(-2px)"
-                    e.target.style.boxShadow = "0 15px 35px rgba(102, 126, 234, 0.4)"
+                    e.target.style.boxShadow = "0 6px 20px rgba(81, 207, 102, 0.4)"
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!loader) {
                     e.target.style.transform = "translateY(0)"
-                    e.target.style.boxShadow = "0 10px 25px rgba(102, 126, 234, 0.3)"
+                    e.target.style.boxShadow = "0 4px 16px rgba(81, 207, 102, 0.3)"
                   }
                 }}
               >
@@ -357,23 +400,27 @@ const AddNotice = () => {
               style={{
                 width: "100%",
                 padding: "0.875rem",
-                background: "transparent",
-                color: "#667eea",
-                border: "2px solid #667eea",
+                // <CHANGE> Updated back button styling for glassmorphic theme
+                background: "rgba(255, 255, 255, 0.1)",
+                color: "white",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
                 borderRadius: "12px",
                 fontSize: "0.95rem",
                 fontWeight: "600",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
                 marginTop: "1rem",
+                backdropFilter: "blur(10px)",
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = "#667eea"
-                e.target.style.color = "white"
+                e.target.style.background = "rgba(255, 255, 255, 0.2)"
+                e.target.style.borderColor = "rgba(255, 255, 255, 0.3)"
+                e.target.style.transform = "translateY(-1px)"
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = "transparent"
-                e.target.style.color = "#667eea"
+                e.target.style.background = "rgba(255, 255, 255, 0.1)"
+                e.target.style.borderColor = "rgba(255, 255, 255, 0.2)"
+                e.target.style.transform = "translateY(0)"
               }}
             >
               ← Back to Notices
@@ -385,7 +432,8 @@ const AddNotice = () => {
           {`
             @keyframes float {
               0%, 100% { transform: translateY(0px) rotate(0deg); }
-              50% { transform: translateY(-20px) rotate(5deg); }
+              33% { transform: translateY(-20px) rotate(120deg); }
+              66% { transform: translateY(-10px) rotate(240deg); }
             }
           `}
         </style>
