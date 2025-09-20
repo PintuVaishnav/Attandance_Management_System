@@ -35,94 +35,35 @@ const ShowClasses = () => {
     })
   }
 
-  const ActionMenu = ({ classId, onClose }) => (
+  const LoadingSpinner = () => (
     <div
       style={{
-        position: "absolute",
-        top: "100%",
-        right: "0",
-        background: "rgba(255, 255, 255, 0.15)",
-        backdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.2)",
-        borderRadius: "12px",
-        padding: "8px",
-        minWidth: "200px",
-        zIndex: 1000,
-        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "200px",
       }}
     >
       <div
-        onClick={() => {
-          navigate("/Admin/addsubject/" + classId)
-          onClose()
-        }}
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-          padding: "12px 16px",
-          borderRadius: "8px",
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-          color: "#ffffff",
-          fontSize: "14px",
-          fontWeight: "500",
+          width: "40px",
+          height: "40px",
+          border: "3px solid rgba(255, 255, 255, 0.3)",
+          borderTop: "3px solid white",
+          borderRadius: "50%",
+          animation: "spin 1s linear infinite",
         }}
-        onMouseEnter={(e) => {
-          e.target.style.background = "rgba(255, 255, 255, 0.1)"
-          e.target.style.transform = "translateX(4px)"
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.background = "transparent"
-          e.target.style.transform = "translateX(0)"
-        }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-          <polyline points="14,2 14,8 20,8" />
-          <line x1="16" y1="13" x2="8" y2="13" />
-          <line x1="16" y1="17" x2="8" y2="17" />
-          <polyline points="10,9 9,9 8,9" />
-        </svg>
-        Add Subjects
-      </div>
-      <div
-        onClick={() => {
-          navigate("/Admin/class/addstudents/" + classId)
-          onClose()
-        }}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "12px",
-          padding: "12px 16px",
-          borderRadius: "8px",
-          cursor: "pointer",
-          transition: "all 0.2s ease",
-          color: "#ffffff",
-          fontSize: "14px",
-          fontWeight: "500",
-        }}
-        onMouseEnter={(e) => {
-          e.target.style.background = "rgba(255, 255, 255, 0.1)"
-          e.target.style.transform = "translateX(4px)"
-        }}
-        onMouseLeave={(e) => {
-          e.target.style.background = "transparent"
-          e.target.style.transform = "translateX(0)"
-        }}
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <line x1="19" y1="8" x2="19" y2="14" />
-          <line x1="22" y1="11" x2="16" y2="11" />
-        </svg>
-        Add Students
-      </div>
+      ></div>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   )
 
+  
   const ClassCard = ({ classData }) => (
     <div
       style={{
@@ -131,6 +72,7 @@ const ShowClasses = () => {
         border: "1px solid rgba(255, 255, 255, 0.2)",
         borderRadius: "16px",
         padding: "24px",
+        marginBottom: "16px",
         transition: "all 0.3s ease",
         position: "relative",
         overflow: "hidden",
@@ -146,7 +88,6 @@ const ShowClasses = () => {
         e.currentTarget.style.background = "rgba(255, 255, 255, 0.1)"
       }}
     >
-      {/* Gradient top border */}
       <div
         style={{
           position: "absolute",
@@ -157,7 +98,7 @@ const ShowClasses = () => {
           background: "linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
           borderRadius: "16px 16px 0 0",
         }}
-      />
+      ></div>
 
       <div
         style={{
@@ -178,7 +119,7 @@ const ShowClasses = () => {
             style={{
               width: "48px",
               height: "48px",
-              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%)",
+              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)",
               borderRadius: "12px",
               display: "flex",
               alignItems: "center",
@@ -204,7 +145,7 @@ const ShowClasses = () => {
             </h3>
             <p
               style={{
-                color: "rgba(255, 255, 255, 0.8)",
+                color: "rgba(255, 255, 255, 0.6)",
                 fontSize: "14px",
                 margin: "0",
                 fontWeight: "400",
@@ -225,8 +166,8 @@ const ShowClasses = () => {
           <button
             onClick={() => navigate("/Admin/classes/class/" + classData.id)}
             style={{
-              background: "rgba(255, 255, 255, 0.2)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
+              background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+              border: "none",
               borderRadius: "10px",
               padding: "10px 20px",
               color: "#ffffff",
@@ -239,14 +180,12 @@ const ShowClasses = () => {
               gap: "8px",
             }}
             onMouseEnter={(e) => {
-              e.target.style.transform = "translateY(-2px)"
-              e.target.style.background = "rgba(255, 255, 255, 0.3)"
-              e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
+              e.currentTarget.style.transform = "translateY(-2px)"
+              e.currentTarget.style.boxShadow = "0 8px 25px rgba(81, 207, 102, 0.4)"
             }}
             onMouseLeave={(e) => {
-              e.target.style.transform = "translateY(0)"
-              e.target.style.background = "rgba(255, 255, 255, 0.2)"
-              e.target.style.boxShadow = "none"
+              e.currentTarget.style.transform = "translateY(0)"
+              e.currentTarget.style.boxShadow = "none"
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -256,47 +195,12 @@ const ShowClasses = () => {
             View
           </button>
 
-          <div style={{ position: "relative" }}>
-            <button
-              onClick={() => setShowActionMenu(showActionMenu === classData.id ? null : classData.id)}
-              style={{
-                background: "rgba(255, 255, 255, 0.15)",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                borderRadius: "10px",
-                padding: "10px 16px",
-                color: "#ffffff",
-                fontSize: "14px",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.25)"
-                e.target.style.transform = "translateY(-2px)"
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = "rgba(255, 255, 255, 0.15)"
-                e.target.style.transform = "translateY(0)"
-              }}
-            >
-              Add
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <polyline points="6,9 12,15 18,9" />
-              </svg>
-            </button>
-
-            {showActionMenu === classData.id && (
-              <ActionMenu classId={classData.id} onClose={() => setShowActionMenu(null)} />
-            )}
-          </div>
+         
 
           <button
             onClick={() => deleteHandler(classData.id, "Sclass")}
             style={{
-              background: "rgba(239, 68, 68, 0.15)",
+              background: "rgba(239, 68, 68, 0.1)",
               border: "1px solid rgba(239, 68, 68, 0.3)",
               borderRadius: "10px",
               padding: "10px",
@@ -308,12 +212,12 @@ const ShowClasses = () => {
               justifyContent: "center",
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = "rgba(239, 68, 68, 0.25)"
-              e.target.style.transform = "translateY(-2px)"
+              e.currentTarget.style.background = "rgba(239, 68, 68, 0.2)"
+              e.currentTarget.style.transform = "translateY(-2px)"
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = "rgba(239, 68, 68, 0.15)"
-              e.target.style.transform = "translateY(0)"
+              e.currentTarget.style.background = "rgba(239, 68, 68, 0.1)"
+              e.currentTarget.style.transform = "translateY(0)"
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -328,42 +232,52 @@ const ShowClasses = () => {
     </div>
   )
 
-  const LoadingSpinner = () => (
-    <div
+  const FloatingActionButton = ({ onClick, icon, label, color = "#ef4444" }) => (
+    <button
+      onClick={onClick}
       style={{
+        position: "fixed",
+        bottom: "24px",
+        right: "24px",
+        background: `linear-gradient(135deg, ${color}, ${color}dd)`,
+        border: "none",
+        borderRadius: "50%",
+        width: "56px",
+        height: "56px",
+        color: "white",
+        cursor: "pointer",
+        boxShadow: "0 4px 20px rgba(239, 68, 68, 0.3)",
+        transition: "all 0.3s ease",
         display: "flex",
-        justifyContent: "center",
         alignItems: "center",
-        height: "200px",
-        flexDirection: "column",
-        gap: "20px",
+        justifyContent: "center",
+        zIndex: 1000,
       }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.1)"
+        e.currentTarget.style.boxShadow = "0 6px 25px rgba(239, 68, 68, 0.4)"
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)"
+        e.currentTarget.style.boxShadow = "0 4px 20px rgba(239, 68, 68, 0.3)"
+      }}
+      title={label}
     >
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          border: "3px solid rgba(255, 255, 255, 0.3)",
-          borderTop: "3px solid white",
-          borderRadius: "50%",
-          animation: "spin 1s linear infinite",
-        }}
-      />
-      <p
-        style={{
-          color: "rgba(255, 255, 255, 0.8)",
-          fontSize: "16px",
-          fontWeight: "500",
-        }}
-      >
-        Loading classes...
-      </p>
-    </div>
+      {icon}
+    </button>
   )
 
-  const FloatingElements = () => (
-    <>
-      {/* Floating background elements */}
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        padding: "24px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Floating animated elements */}
       <div
         style={{
           position: "absolute",
@@ -374,9 +288,9 @@ const ShowClasses = () => {
           background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
-          animationDelay: "0s",
+          animationDelay: "0s"
         }}
-      />
+      ></div>
       <div
         style={{
           position: "absolute",
@@ -387,9 +301,9 @@ const ShowClasses = () => {
           background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
-          animationDelay: "2s",
+          animationDelay: "2s"
         }}
-      />
+      ></div>
       <div
         style={{
           position: "absolute",
@@ -400,9 +314,9 @@ const ShowClasses = () => {
           background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
-          animationDelay: "4s",
+          animationDelay: "4s"
         }}
-      />
+      ></div>
       <div
         style={{
           position: "absolute",
@@ -413,40 +327,19 @@ const ShowClasses = () => {
           background: "rgba(255, 255, 255, 0.1)",
           borderRadius: "50%",
           animation: "float 6s ease-in-out infinite",
-          animationDelay: "1s",
+          animationDelay: "1s"
         }}
-      />
-    </>
-  )
+      ></div>
 
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-        position: "relative",
-        padding: "24px",
-        fontFamily: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-        overflow: "hidden",
-      }}
-    >
-      <FloatingElements />
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-20px) rotate(120deg); }
+          66% { transform: translateY(-10px) rotate(240deg); }
+        }
+      `}</style>
 
-      {/* Global styles */}
-      <style>
-        {`
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(120deg); }
-            66% { transform: translateY(-10px) rotate(240deg); }
-          }
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        `}
-      </style>
-
+      {/* Overlay for action menu */}
       {showActionMenu && (
         <div
           style={{
@@ -469,7 +362,6 @@ const ShowClasses = () => {
           zIndex: 1,
         }}
       >
-        {/* Header Section */}
         <div
           style={{
             marginBottom: "32px",
@@ -494,49 +386,13 @@ const ShowClasses = () => {
             style={{
               color: "rgba(255, 255, 255, 0.8)",
               fontSize: "16px",
-              margin: "0 0 24px 0",
+              margin: 0,
             }}
           >
             Manage your school classes and their configurations
           </p>
-
-          <button
-            onClick={() => navigate("/Admin/addclass")}
-            style={{
-              background: "rgba(255, 255, 255, 0.2)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              borderRadius: "12px",
-              padding: "14px 24px",
-              color: "#ffffff",
-              fontSize: "16px",
-              fontWeight: "600",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              backdropFilter: "blur(20px)",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "translateY(-3px)"
-              e.target.style.background = "rgba(255, 255, 255, 0.3)"
-              e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "translateY(0)"
-              e.target.style.background = "rgba(255, 255, 255, 0.2)"
-              e.target.style.boxShadow = "none"
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="12" y1="5" x2="12" y2="19" />
-              <line x1="5" y1="12" x2="19" y2="12" />
-            </svg>
-            Add New Class
-          </button>
         </div>
 
-        {/* Content Section */}
         {loading ? (
           <LoadingSpinner />
         ) : getresponse ? (
@@ -556,44 +412,35 @@ const ShowClasses = () => {
                 backdropFilter: "blur(20px)",
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 borderRadius: "16px",
-                padding: "60px",
-                maxWidth: "500px",
+                padding: "40px",
+                maxWidth: "400px",
               }}
             >
-              <div
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  background: "rgba(255, 255, 255, 0.2)",
-                  borderRadius: "20px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 24px auto",
-                  border: "1px solid rgba(255, 255, 255, 0.3)",
-                }}
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                style={{ margin: "0 auto 16px", opacity: 0.6, color: "white" }}
               >
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                </svg>
-              </div>
-              <h2
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <h3
                 style={{
                   color: "#ffffff",
-                  fontSize: "24px",
+                  fontSize: "20px",
                   fontWeight: "600",
-                  margin: "0 0 12px 0",
+                  margin: "0 0 8px 0",
                 }}
               >
                 No Classes Found
-              </h2>
+              </h3>
               <p
                 style={{
                   color: "rgba(255, 255, 255, 0.8)",
-                  fontSize: "16px",
-                  margin: "0 0 32px 0",
-                  lineHeight: "1.5",
+                  fontSize: "14px",
+                  margin: "0 0 24px 0",
                 }}
               >
                 Get started by creating your first class to organize students and subjects.
@@ -601,25 +448,23 @@ const ShowClasses = () => {
               <button
                 onClick={() => navigate("/Admin/addclass")}
                 style={{
-                  background: "rgba(255, 255, 255, 0.2)",
-                  border: "1px solid rgba(255, 255, 255, 0.3)",
-                  borderRadius: "12px",
-                  padding: "14px 28px",
-                  color: "#ffffff",
-                  fontSize: "16px",
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "12px 24px",
+                  color: "white",
+                  fontSize: "14px",
                   fontWeight: "600",
                   cursor: "pointer",
-                  transition: "all 0.3s ease",
+                  transition: "all 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.transform = "translateY(-2px)"
-                  e.target.style.background = "rgba(255, 255, 255, 0.3)"
-                  e.target.style.boxShadow = "0 8px 25px rgba(255, 255, 255, 0.2)"
+                  e.currentTarget.style.transform = "translateY(-2px)"
+                  e.currentTarget.style.boxShadow = "0 8px 25px rgba(81, 207, 102, 0.4)"
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.transform = "translateY(0)"
-                  e.target.style.background = "rgba(255, 255, 255, 0.2)"
-                  e.target.style.boxShadow = "none"
+                  e.currentTarget.style.transform = "translateY(0)"
+                  e.currentTarget.style.boxShadow = "none"
                 }}
               >
                 Create First Class
@@ -627,8 +472,7 @@ const ShowClasses = () => {
             </div>
           </div>
         ) : (
-          <>
-            {/* Classes Grid Header */}
+          <div>
             <div
               style={{
                 display: "flex",
@@ -663,14 +507,48 @@ const ShowClasses = () => {
                   {Array.isArray(sclassesList) ? sclassesList.length : 0} classes found
                 </p>
               </div>
+              <button
+                onClick={() => navigate("/Admin/addclass")}
+                style={{
+                  background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "10px 20px",
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-1px)"
+                  e.currentTarget.style.boxShadow = "0 4px 15px rgba(81, 207, 102, 0.4)"
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)"
+                  e.currentTarget.style.boxShadow = "none"
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 5v14M5 12h14"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Add New Class
+              </button>
             </div>
 
-            {/* Classes Grid */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
-                gap: "24px",
+                gap: "16px",
               }}
             >
               {Array.isArray(sclassesList) &&
@@ -685,51 +563,29 @@ const ShowClasses = () => {
                   />
                 ))}
             </div>
-          </>
-        )}
 
-        {/* Floating Delete All Button */}
-        {Array.isArray(sclassesList) && sclassesList.length > 0 && (
-          <button
-            onClick={() => deleteHandler(adminID, "Sclasses")}
-            style={{
-              position: "fixed",
-              bottom: "30px",
-              right: "30px",
-              width: "60px",
-              height: "60px",
-              background: "rgba(239, 68, 68, 0.9)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(239, 68, 68, 0.3)",
-              borderRadius: "50%",
-              color: "#ffffff",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              zIndex: 1000,
-              boxShadow: "0 8px 25px rgba(239, 68, 68, 0.3)",
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = "scale(1.1) translateY(-2px)"
-              e.target.style.boxShadow = "0 12px 30px rgba(239, 68, 68, 0.4)"
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = "scale(1) translateY(0)"
-              e.target.style.boxShadow = "0 8px 25px rgba(239, 68, 68, 0.3)"
-            }}
-            title="Delete All Classes"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="3,6 5,6 21,6" />
-              <path d="M19,6v14a2,2,0,0,1-2,2H7a2,2,0,0,1-2-2V6m3,0V4a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2V6" />
-            </svg>
-          </button>
+            {Array.isArray(sclassesList) && sclassesList.length > 0 && (
+              <FloatingActionButton
+                onClick={() => deleteHandler(adminID, "Sclasses")}
+                icon={
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                }
+                label="Delete All Classes"
+                color="#ef4444"
+              />
+            )}
+          </div>
         )}
       </div>
 
-      {/* Popup Modal */}
       {showPopup && (
         <div
           style={{
@@ -737,7 +593,7 @@ const ShowClasses = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            background: "rgba(255, 255, 255, 0.15)",
+            background: "rgba(255, 255, 255, 0.1)",
             backdropFilter: "blur(20px)",
             border: "1px solid rgba(255, 255, 255, 0.2)",
             borderRadius: "16px",
@@ -759,8 +615,8 @@ const ShowClasses = () => {
           <button
             onClick={() => setShowPopup(false)}
             style={{
-              background: "rgba(255, 255, 255, 0.2)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
+              background: "linear-gradient(135deg, #51cf66 0%, #40c057 100%)",
+              border: "none",
               borderRadius: "8px",
               padding: "10px 20px",
               color: "#ffffff",
