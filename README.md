@@ -42,7 +42,7 @@ This system automates attendance, keeps records organized, and improves communic
 ```bash
 cd backend
 npm install
-```
+``` 
 
 * Create a `.env` file:
 
